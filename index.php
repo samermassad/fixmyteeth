@@ -5,7 +5,7 @@ include 'functions.php';
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Fix My Teeth</title>
     </head>
     <body>
         <form method="post">
