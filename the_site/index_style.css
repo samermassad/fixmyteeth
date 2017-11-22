@@ -5,19 +5,21 @@ img {
 	resize: both;
     overflow: auto;
 	max-width:100%;
-	width: 100%;
-	height: auto;
 }
 
 div {
-
-    resize: both;
-    overflow: auto;
+	max-width: 100%;
+	width: 100%;
 
 }
 
 
-
+table {
+	max-width: 100%;
+	width: 100%;
+	resize:both;
+	
+}
 
 
 
@@ -30,15 +32,12 @@ div {
 
 
 /*                container dimension                    */
-#smily {
-	max-width:100%;
-	width: 100%;
-	height:auto;
-}
-
 #container {
 	max-width: 100%; 
 	position:auto;
     width: 100%;
 }
 
+#background {
+	width: 100%;
+}
