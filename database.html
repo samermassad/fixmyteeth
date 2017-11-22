@@ -1,1 +1,10 @@
 CREATE TABLE `dentists` ( `id` int(11) NOT NULL AUTO_INCREMENT, `first_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL, `last_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL, `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL, `gender` varchar(100) COLLATE utf8_unicode_ci NOT NULL, `address` varchar(500) COLLATE utf8_unicode_ci NOT NULL, `city` varchar(100) COLLATE utf8_unicode_ci NOT NULL, `phone` varchar(15) COLLATE utf8_unicode_ci NOT NULL, `image` TEXT NOT NULL, `openings` varchar(300) COLLATE utf8_unicode_ci NOT NULL, `specialty` varchar(300) COLLATE utf8_unicode_ci NOT NULL, PRIMARY KEY (`id`)) CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+
+LOAD DATA LOCAL INFILE '/var/www/html/fixmyteeth/DB.csv'
+INTO TABLE dentists
+FIELDS TERMINATED BY ','
+    ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES
+(id, first_name, last_name, email, gender, address, city, phone, image, openings, specialty);
