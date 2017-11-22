@@ -16,8 +16,8 @@ function db_connect() {
 
 function search($conn, $address, $city, $specialty, $name) {
     $query = "SELECT * FROM dentists WHERE ";
-    $query .= empty($address) ? "" : "address = '$address' AND ";
-    $query .= empty($city) ? "" : "city = '$city' AND ";
+    $query .= empty($address) ? "" : "CONCAT(address) LIKE  '%$address%';";
+    $query .= empty($city) ? "" : "CONCAT(city) LIKE  '%$city%';";
     $query .= empty($specialty) ? "" : "specialty = '$specialty' AND ";
     $query .= empty($name) ? "" : "CONCAT( first_name,  ' ', last_name ) LIKE  '%$name%';";
     $results = mysqli_query($conn, $query);
