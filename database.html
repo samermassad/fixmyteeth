@@ -4,7 +4,6 @@ CREATE TABLE `dentists` ( `id` int(11) NOT NULL AUTO_INCREMENT, `first_name` var
 LOAD DATA LOCAL INFILE '/var/www/html/fixmyteeth/DB.csv'
 INTO TABLE dentists
 FIELDS TERMINATED BY ','
-    ENCLOSED BY '"'
+ENCLOSED BY '"'
 LINES TERMINATED BY '\n'
-IGNORE 1 LINES
 (id, first_name, last_name, email, gender, address, city, phone, image, openings, specialty);
