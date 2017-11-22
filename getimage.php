@@ -1,16 +1,10 @@
 <?php
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- * Description of getimage
- *
- * @author samer
- */
-class getimage {
-    //put your code here
+if(isset($_GET['image'])) {
+    $code_base64 = $_GET['image'];
+    $code_base64 = str_replace('data:image/png;base64,','',$code_base64);
+    $code_binary = base64_decode($code_base64);
+    $image= imagecreatefromstring($code_binary);
+    header('Content-Type: image/png');
+    imagejpeg($image);
+    imagedestroy($image);
 }

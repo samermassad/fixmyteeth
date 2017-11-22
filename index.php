@@ -51,7 +51,7 @@ include 'functions.php';
                 <th><?php echo $value[5]; ?></th>
                 <th><?php echo $value[6]; ?></th>
                 <th><?php echo $value[7]; ?></th>
-                <th><img src="data:image/jpeg;base64,<?php echo base64_encode( $value[8] ); ?>" /></th>
+                <th><img src="<?php echo $value[8]; ?>" /></th>
                 <th><?php echo $value[9]; ?></th>
                 <th><?php echo $value[10]; ?></th>
             </tr>
