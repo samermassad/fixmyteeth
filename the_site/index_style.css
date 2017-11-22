@@ -21,32 +21,9 @@ table {
 	
 }
 
-#location {
-	opacity:1;
-}
-
-#location:onclick {
-	
-	opacity:0;
-}
-
-#input {
-	opacity:0;
-}
-
-#input:onclick {
-	
-	opacity:1;
-}
-
-
-#locate {
-    min-height: 4em; /* it should resize as required from this minimum height */
-}
-
-
-
-
+.input_field { position: relative; width:240px; }
+.input_field input { position: float; border:none: background:#fff; display:block; width: 100%; box-sizing: border-box }
+.input_field img { position: float; top: 2px; right: 5px }
 
 /*                container dimension                    */
 #container {
