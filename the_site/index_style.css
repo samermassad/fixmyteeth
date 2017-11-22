@@ -1,0 +1,44 @@
+@charset "utf-8";
+/* CSS Document */
+
+img {
+	resize: both;
+    overflow: auto;
+	max-width:100%;
+	width: 100%;
+	height: auto;
+}
+
+div {
+
+    resize: both;
+    overflow: auto;
+
+}
+
+
+
+
+
+
+#locate {
+    min-height: 4em; /* it should resize as required from this minimum height */
+}
+
+
+
+
+
+/*                container dimension                    */
+#smily {
+	max-width:100%;
+	width: 100%;
+	height:auto;
+}
+
+#container {
+	max-width: 100%; 
+	position:auto;
+    width: 100%;
+}
+
