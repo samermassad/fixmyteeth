@@ -12,7 +12,7 @@ include 'functions.php';
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <body>
-        <form method="post">
+        <form method="post" action="results.php">
             <input type="text" name="address">
             <input type="text" name="city">
             <input type="text" name="specialty" value="none">
