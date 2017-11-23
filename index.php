@@ -12,18 +12,32 @@ include 'functions.php';
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     </head>
     <body>
-        <form method="post" action="results.php">
-            <input type="text" name="address">
-            <input type="text" name="city">
-            <input type="text" name="specialty" value="none">
-            <input type="text" name="name">
-            <br />
-            <input type="text" name="day" value="any">
-            <input type="time" name="from">
-            <input type="time" name="to">
-            <input type="checkbox" value="Photo?" name="photo">
-            <input type="text" name="gender">
-            <input type="submit" name="submit">
-        </form>
+        <div class="container" id="container">
+            <div id="content-slider">
+                <div id="slider">  <!-- Slider container -->
+                    <div id="mask">  <!-- Mask -->
+                        <ul>
+                            <li id="first" class="firstanimation">  <!-- ID for tooltip and class for animation -->
+                                <img src="web_elements/background.jpg" alt="Cougar"/>
+                            </li>
+                            <li id="second" class="secondanimation">
+                                <img src="web_elements/background_1.jpg" alt="Lions"/>
+                            </li>
+                            <li id="third" class="thirdanimation">
+                                <img src="web_elements/background_2.jpg" alt="Snowalker"/>
+                            </li>
+                            <li id="third" class="fourthanimation">
+                                <img src="web_elements/background_00.jpg" alt="Msg"/>
+                            </li>
+                        </ul>
+                    </div>  <!-- End Mask -->
+                    <div class="progress-bar">
+                    </div>  <!-- Progress Bar -->
+                </div>  <!-- End Slider Container -->
+            </div>
+            <?php
+                display_search_bar();
+            ?>
+        </div>
     </body>
 </html>
