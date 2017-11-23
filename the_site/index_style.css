@@ -35,6 +35,8 @@ img {
 div {
 	max-width: 100%;
 	width: 100%;
+    position: relative;
+    display: block;
 
 }
 
@@ -49,12 +51,12 @@ form {
 }
 
 table {
-	position:fixed;
-    bottom: 8.7%;
-	max-width: 97%;
-	width: 100%;
-	resize:both;
-	
+    /*position:fixed;*/
+    bottom: 14%;
+    max-width: 100%;
+    width: 100%;
+    resize:both;
+
 }
 #lower {
 	max-width: 90%;
@@ -65,8 +67,20 @@ table {
 }
 
 #whitespace{
-	z-index:-100
+    z-index:-100
 }
+
+.hours_table {
+    margin: auto;
+    transition: all .2s ease-out;
+    height:0px;
+    overflow: hidden;
+}
+.hours_table table { margin: auto;  }
+#show_hours { cursor: pointer; }
+
+
+
 #whitespace1{
 	z-index:-100
 }
@@ -101,8 +115,6 @@ position:fixed;
 	
 	
 }
-
-
 
 #slider {
    background: none;
@@ -370,6 +382,14 @@ label {
   background: #168ca1;
   color: #168ca1;
 }
+.btn.btn-cancel {
+  background: #eee;
+}
+.btn.btn-cancel:hover {
+  background: #e1e1e1;
+  color: #ffffff;
+}
+
 .btn-box {
   text-align: center;
   margin: 10px 0;

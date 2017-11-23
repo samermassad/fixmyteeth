@@ -115,68 +115,65 @@ function get_dentists($ids) {
 function display_search_bar() {
     ?>
 <div class="tables" id="tables">
-  <form action="results.php" method="post">
-    <table>
-    <tr>
-    <td>
-    <div id="whitespace1"><img src="web_elements/space_ss.png" /></div>
-    </td>
-    <td>
+        <form action="results.php" method="post">
+          <table id="higher">
+                <tr>
+    <th>
     <div class="group">
       <input name="address" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Locate Dentist (Address)</label>
     </div>
-    </td>
-    <td>
+    </th>
+    <th>
     <div class="group">
       <input name="city" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Your City</label>
     </div>
-    </td>
-    <td>
-    <div class="group">
-      <input name="specialty" type="text" list="browser5"/><span class="highlight"></span><span class="bar"></span>
-      <label>Specialty</label>
-        <datalist id="browser5">
-            <?php 
+    </th>
+    <th>
+        <div class="group">
+            <input name="specialty" type="text" list="browser5"/><span class="highlight"></span><span class="bar"></span>
+            <label>Specialty</label>
+            <datalist id="browser5">
+                <?php
                 $specialties = get_specilties();
                 foreach($specialties as $specialty) {
                     echo "<option value='$specialty'>";
                 }
-            ?>
-	</datalist>
-    </div>
-    </td>
-    <td>
+                ?>
+            </datalist>
+        </div>
+    </th>
+    <th>
     <div class="group">
       <input name="name" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Doctor Name</label>
     </div>
-    </td>
+    </th>
     </tr>
+    </table>
+    <table id="lower">
+
     <tr>
-    <td>
-    <div id="whitespace"><img src="web_elements/space_ss.png" /></div>
-    </td>
     <td>
     <div class="group">
      <input name="day" type="text" list="browser1"/><span class="highlight"></span><span class="bar"></span>
      <label>Weekdays</label>
         <datalist id="browser1">
-            <option value="Monday">
-            <option value="Tuesday">
-            <option value="Wednesday">
-            <option value="Thursday">
-            <option value="Saturday">
-            <option value="Sunday">
-            <option value="Any">
-	</datalist>
+ 		<option value="Monday">
+  		<option value="Tuesday">
+ 		<option value="Wednesday">
+  		<option value="Thursday">
+ 		<option value="Saturday">
+  		<option value="Sunday">
+        <option value="Any">
+		</datalist>
     </div>
     </td>
     <td>
     <div class="group">
-     <input name="from" type="text" list="browser0"/><span class="highlight"></span><span class="bar"></span>
-     <label>Start time</label>
+     <input name="from" type="text" list="browser0" width= 100px/><span class="highlight"></span><span class="bar"></span>
+     <label>Time from</label>
         <datalist id="browser0">
  		<option value="00:00">
   		<option value="00:30">
@@ -231,62 +228,62 @@ function display_search_bar() {
     </div>
     </td>
     <td>
-        <div class="group">
-         <input name="to" type="text" list="browser0"/><span class="highlight"></span><span class="bar"></span>
-         <label>End time</label>
-            <datalist id="browser0">
-     		<option value="00:00">
-      		<option value="00:30">
-     		<option value="01:00">
-      		<option value="01:30">
-     		<option value="02:00">
-      		<option value="02:30">
-            <option value="03:00">
-      		<option value="03:30">
-     		<option value="04:00">
-      		<option value="04:30">
-     		<option value="05:00">
-      		<option value="05:30">
-            <option value="06:00">
-      		<option value="06:30">
-     		<option value="07:00">
-      		<option value="07:30">
-     		<option value="08:00">
-      		<option value="08:30">
-            <option value="09:00">
-      		<option value="09:30">
-     		<option value="10:00">
-      		<option value="10:30">
-     		<option value="11:00">
-      		<option value="11:30">
-            <option value="12:00">
-      		<option value="12:30">
-     		<option value="13:00">
-      		<option value="13:30">
-     		<option value="14:00">
-      		<option value="14:30">
-            <option value="15:00">
-      		<option value="15:30">
-     		<option value="16:00">
-      		<option value="16:30">
-     		<option value="17:00">
-      		<option value="17:30">
-            <option value="18:00">
-      		<option value="18:30">
-     		<option value="19:00">
-      		<option value="19:30">
-     		<option value="20:00">
-      		<option value="20:30">
-            <option value="21:00">
-      		<option value="21:30">
-     		<option value="22:00">
-      		<option value="22:30">
-     		<option value="23:00">
-      		<option value="23:30">
-            <option value="Not to specify">
-    		</datalist>
-        </div>
-        </td>
+    <div class="group">
+     <input name="to" type="text" list="browser0" width= 100px/><span class="highlight"></span><span class="bar"></span>
+     <label>Time to</label>
+        <datalist id="browser0">
+ 		<option value="00:00">
+  		<option value="00:30">
+ 		<option value="01:00">
+  		<option value="01:30">
+ 		<option value="02:00">
+  		<option value="02:30">
+        <option value="03:00">
+  		<option value="03:30">
+ 		<option value="04:00">
+  		<option value="04:30">
+ 		<option value="05:00">
+  		<option value="05:30">
+        <option value="06:00">
+  		<option value="06:30">
+ 		<option value="07:00">
+  		<option value="07:30">
+ 		<option value="08:00">
+  		<option value="08:30">
+        <option value="09:00">
+  		<option value="09:30">
+ 		<option value="10:00">
+  		<option value="10:30">
+ 		<option value="11:00">
+  		<option value="11:30">
+        <option value="12:00">
+  		<option value="12:30">
+ 		<option value="13:00">
+  		<option value="13:30">
+ 		<option value="14:00">
+  		<option value="14:30">
+        <option value="15:00">
+  		<option value="15:30">
+ 		<option value="16:00">
+  		<option value="16:30">
+ 		<option value="17:00">
+  		<option value="17:30">
+        <option value="18:00">
+  		<option value="18:30">
+ 		<option value="19:00">
+  		<option value="19:30">
+ 		<option value="20:00">
+  		<option value="20:30">
+        <option value="21:00">
+  		<option value="21:30">
+ 		<option value="22:00">
+  		<option value="22:30">
+ 		<option value="23:00">
+  		<option value="23:30">
+        <option value="Not to specify">
+		</datalist>
+    </div>
+    </td>
     <td>
     <div class="group">
      <input name="gender" type="text" list="browser2"/><span class="highlight"></span><span class="bar"></span>
@@ -309,11 +306,6 @@ function display_search_bar() {
 		</datalist>
     </div>
     </td>
-    </tr>
-    <tr>
-        <td>
-            <input type="submit" value="Search" name="submit"/>
-        </td>
     </tr>
     </table>
     </form>
