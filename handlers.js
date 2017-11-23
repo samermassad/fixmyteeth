@@ -18,5 +18,13 @@ function onSearchHandler() {
         error: function(jqXHR, textStatus, error) {
             console.log("there was an error in the function call");
         }
-    })
+    });
+}
+
+function getSpecialities() {
+    $.ajax({
+        type: "post",
+        url: "function.php",
+        data: {functionName: 'getSpecialties'}
+    });
 }
