@@ -136,7 +136,15 @@ function display_search_bar() {
     <th>
     <div class="group">
       <input name="specialty" type="text"/><span class="highlight"></span><span class="bar"></span>
-      <label>Speciality</label>
+      <label>Specialty</label>
+        <datalist id="browser1">
+            <?php 
+                $specialties = get_specilties();
+                foreach($specialties as $specialty) {
+                    echo "<option value='$specialty'>";
+                }
+            ?>
+		</datalist>
     </div>
     </th>
     <th>
@@ -161,7 +169,7 @@ function display_search_bar() {
   		<option value="Thursday">
  		<option value="Saturday">
   		<option value="Sunday">
-        <option value="Not to specify">
+        <option value="Any">
 		</datalist>
     </div>
     </td>
