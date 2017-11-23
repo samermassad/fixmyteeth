@@ -42,6 +42,7 @@ include 'functions.php';
             </tr>
             <?php 
             foreach($results as $key => $value) {
+                $hours = json_decode($value[9], true);
                 ?>
             <tr>
                 <th><?php echo $value[1]; ?></th>
@@ -52,7 +53,14 @@ include 'functions.php';
                 <th><?php echo $value[6]; ?></th>
                 <th><?php echo $value[7]; ?></th>
                 <th><img src="<?php echo $value[8]; ?>" /></th>
-                <th><?php echo var_dump(json_decode($value[9])); ?></th>
+                 <th><table>
+                         <?php foreach($hours[0] as $key => $value) {
+                             $open = $value['open'];
+                             $close = $value['close'];
+                             echo "<tr><td>$key</td><td>$open</td><td>$close</td></tr>";
+                         } ?>
+                    </table>
+                 </th>
                 <th><?php echo empty(trim($value[10])) ? "General Dentist" : $value[10]; ?></th>
             </tr>
             <?php
