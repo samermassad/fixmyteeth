@@ -25,7 +25,7 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
     $query .= empty($name) ? "CONCAT( first_name,  ' ', last_name ) LIKE '%' AND " : "CONCAT( first_name,  ' ', last_name ) LIKE  '%$name%' AND ";
     $query .= empty($photo) ? "`image` LIKE '%' AND " : "`image` != ' ' AND ";
     $query .= empty($gender) ? "`gender` LIKE '%'" : "`gender` = '$gender'";
-    $query .= "ORDER BY RAND() LIMIT 10;";
+    $query .= "ORDER BY RAND() LIMIT 40;";
     
     $results = mysqli_query($conn, $query);
     $return = array();
