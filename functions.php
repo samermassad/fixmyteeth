@@ -38,7 +38,7 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
         }
         if($available)    $return[] = $row;
     }
-    return $return;
+    return json_encode($return);
 }
 
 function check_hours($day, $fromto, $hours) {

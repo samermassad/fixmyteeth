@@ -7,7 +7,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous" ></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>Untitled Document</title>
+    <title>Fix My Teeth</title>
 </head>
 
 <body>
@@ -37,9 +37,6 @@
     <table>
     <tr>
     <th>
-    <img src="web_elements/space_ss.jpg" />
-    </th>
-    <th>
     <div class="group">
       <input type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Locate Dentist (Address)</label>
@@ -54,7 +51,7 @@
     <th>
     <div class="group">
       <input type="text"/><span class="highlight"></span><span class="bar"></span>
-      <label>Speciality</label>
+      <label>Specialty</label>
     </div>
     </th>
     <th>
@@ -66,21 +63,18 @@
     </tr>
     <tr>
     <td>
-    <img src="web_elements/space_ss.jpg" />
-    </td>
-    <td>
     <div class="group">
      <input type="text" list="browser1"/><span class="highlight"></span><span class="bar"></span>
-     <label>Weekdays</label>
+     <label>Day</label>
         <datalist id="browser1">
+                <option value="Not to specify">
  		<option value="Monday">
   		<option value="Tuesday">
  		<option value="Wednesday">
   		<option value="Thursday">
  		<option value="Saturday">
   		<option value="Sunday">
-        <option value="Not to specify">
-		</datalist>
+	</datalist>
     </div>
     </td>
     <td>
@@ -88,56 +82,56 @@
      <input type="text" list="browser0"/><span class="highlight"></span><span class="bar"></span>
      <label>Time Schedule(24h format)</label>
         <datalist id="browser0">
- 		<option value="00:00">
-  		<option value="00:30">
- 		<option value="01:00">
-  		<option value="01:30">
- 		<option value="02:00">
-  		<option value="02:30">
-        <option value="03:00">
-  		<option value="03:30">
- 		<option value="04:00">
-  		<option value="04:30">
- 		<option value="05:00">
-  		<option value="05:30">
-        <option value="06:00">
-  		<option value="06:30">
- 		<option value="07:00">
-  		<option value="07:30">
- 		<option value="08:00">
-  		<option value="08:30">
-        <option value="09:00">
-  		<option value="09:30">
- 		<option value="10:00">
-  		<option value="10:30">
- 		<option value="11:00">
-  		<option value="11:30">
-        <option value="12:00">
-  		<option value="12:30">
- 		<option value="13:00">
-  		<option value="13:30">
- 		<option value="14:00">
-  		<option value="14:30">
-        <option value="15:00">
-  		<option value="15:30">
- 		<option value="16:00">
-  		<option value="16:30">
- 		<option value="17:00">
-  		<option value="17:30">
-        <option value="18:00">
-  		<option value="18:30">
- 		<option value="19:00">
-  		<option value="19:30">
- 		<option value="20:00">
-  		<option value="20:30">
-        <option value="21:00">
-  		<option value="21:30">
- 		<option value="22:00">
-  		<option value="22:30">
- 		<option value="23:00">
-  		<option value="23:30">
-        <option value="Not to specify">
-		</datalist>
+            <option value="Not to specify">
+            <option value="00:00">
+            <option value="00:30">
+            <option value="01:00">
+            <option value="01:30">
+            <option value="02:00">
+            <option value="02:30">
+            <option value="03:00">
+            <option value="03:30">
+            <option value="04:00">
+            <option value="04:30">
+            <option value="05:00">
+            <option value="05:30">
+            <option value="06:00">
+            <option value="06:30">
+            <option value="07:00">
+            <option value="07:30">
+            <option value="08:00">
+            <option value="08:30">
+            <option value="09:00">
+            <option value="09:30">
+            <option value="10:00">
+            <option value="10:30">
+            <option value="11:00">
+            <option value="11:30">
+            <option value="12:00">
+            <option value="12:30">
+            <option value="13:00">
+            <option value="13:30">
+            <option value="14:00">
+            <option value="14:30">
+            <option value="15:00">
+            <option value="15:30">
+            <option value="16:00">
+            <option value="16:30">
+            <option value="17:00">
+            <option value="17:30">
+            <option value="18:00">
+            <option value="18:30">
+            <option value="19:00">
+            <option value="19:30">
+            <option value="20:00">
+            <option value="20:30">
+            <option value="21:00">
+            <option value="21:30">
+            <option value="22:00">
+            <option value="22:30">
+            <option value="23:00">
+            <option value="23:30">
+        </datalist>
     </div>
     </td>
     <td>
@@ -145,26 +139,21 @@
      <input type="text" list="browser2"/><span class="highlight"></span><span class="bar"></span>
      <label>Gender</label>
         <datalist id="browser2">
- 		<option value="Male">
-  		<option value="Female">
-  		<option value="Not to specify">
-		</datalist>
+            <option value="Not to specify">
+            <option value="Female">
+            <option value="Male">
+	</datalist>
     </div>
     </td>
     <td>
     <div class="group">
      <input type="text" list="browser3"/><span class="highlight"></span><span class="bar"></span>
-     <label>Photo(Yes/No?)</label>
-     	<datalist id="browser3">
- 		<option value="Yes">
-  		<option value="No">
-  		<option value="Not to specify">
-		</datalist>
+     <label>Photo?</label>
+     <input type="checkbox" value="Photo?" />
     </div>
     </td>
     </tr>
     </table>
-	<img src="web_elements/footbanner.jpg" />
 	</div>
 
 </body>
