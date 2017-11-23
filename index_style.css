@@ -20,6 +20,8 @@ img {
 div {
 	max-width: 100%;
 	width: 100%;
+    position: relative;
+    display: block;
 
 }
 
@@ -27,6 +29,17 @@ li {
 	max-width: 100%;
 	width: 100%;
 	
+}
+table {
+    position:fixed;
+    bottom: 14%;
+    max-width: 100%;
+    width: 100%;
+    resize:both;
+
+}
+#whitespace{
+    z-index:-100
 }
 #search_table {
 	position:absolute;
@@ -57,6 +70,9 @@ li {
 
 
 
+#whitespace1{
+	z-index:-100
+}
 .input_field { position: relative; width:240px; }
 .input_field input { position: float; border:none; background:#fff; display:block; width: 100%; box-sizing: border-box }
 .input_field img { position: float; top: 2px; right: 5px }
@@ -82,19 +98,21 @@ li {
 
 #content-slider {
 	max-width:100%;	
-position:fixed;
+    position:relative;
 	width: 100%;
 	z-index: -1;
-	
-	
+    height: 70%;
 }
 
-
+.tables {
+    height: 30%;
+    /*top: 315px;*/
+}
 
 #slider {
    background: none;
    border: 5px solid #eaeaea;
-   height: auto;
+   height: 100%;
    width: 100%;
    max-width:100%;
    position:relative;
@@ -115,10 +133,10 @@ position:fixed;
 }
 
 #slider li {
-   width: 2016px;  /* Width Image */
-   height: 764px; /* Height Image */
+   width: 100%;  /* Width Image */
+   height: 100%; /* Height Image */
    position: absolute;
-   top: -325px; /* Original Position - Outside of the Slider */
+   /*top: -325px; /!* Original Position - Outside of the Slider *!/*/
    list-style: none;
 }
 
@@ -205,7 +223,6 @@ body {
 }
 
 form {
-  width: 200px;
   margin: 15px auto;
 }
 form h1 {
