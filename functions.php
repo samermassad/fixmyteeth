@@ -31,7 +31,7 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
     $return = array();
     foreach(mysqli_fetch_all($results) as $row) {
         $available = true;
-        $row[9] = json_decode($row[9],true)[0];                                 //JSON decode the opening hours
+        $row[9] = json_decode($row[9],true)[0];                                 //JSON decoding the opening hours
         if(array_filter($fromto)) {
             $available = check_hours($day, $fromto, $row[9]);
         }
@@ -48,7 +48,7 @@ function check_hours($day, $fromto, $hours) {
     $from = strtotime($fromto[0]) ? strtotime($fromto[0]) : strtotime("23:59"); //check if defined or not and assign the values
     $to = strtotime($fromto[1]) ? strtotime($fromto[1]) : strtotime("00:00");
 
-    if(strcmp($day,"any") == 0) {
+    if(strcmp($day,"Any") == 0) {
         //returns true at first match
         foreach($hours as $value) {
             if($from >= strtotime($value['open']) && $to <= strtotime($value['close']))   return true;
@@ -69,6 +69,47 @@ function get_specilties() {
         if(!in_array($row['specialty'], $storeArray)) $storeArray[] = $row['specialty'];
     }
     return $storeArray;
+}
+
+function create_account($username,$password) {
+    $conn = db_connect();
+    $query = "INSERT INTO `users` ( username, password , contacted_dentists ) VALUES  ( '$username', '$password' , '[1,2]' );";
+    $retval = mysqli_query( $conn, $query );
+         
+    if(! $retval ) {
+       die('Could not enter data: ' . mysqli_error());
+    } else return true;
+}
+
+function sign_in($username, $password) {
+    $conn = db_connect();
+    $query = "SELECT * FROM `users` WHERE `username` = '$username' AND `password` = '$password' ;";
+    $retval = mysqli_query( $conn, $query );
+    $val = mysqli_fetch_all($retval);
+    if( empty($val) ) {
+       return false;
+    } else {
+        if(!isset($_SESSION)) { 
+            session_start();
+        }
+        $_SESSION['contacted_dentists'] = json_decode($val[0][3]);
+        return true;
+    }
+}
+
+function user_signed_in() {
+    if(!isset($_SESSION)) { 
+        session_start();
+    }
+    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function get_dentists($ids) {
+    
 }
 
 function display_search_bar() {
