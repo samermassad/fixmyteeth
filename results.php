@@ -20,7 +20,6 @@ include "functions.php";
 
     <div id="results-grid">
         <?php
-		var_dump($_POST);
                 $address = $_POST['address'];
                 $city = $_POST['city'];
                 $specialty = $_POST['specialty'];

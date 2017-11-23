@@ -21,12 +21,12 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
     $query = "SELECT * FROM `dentists` WHERE ";
     $query .= empty($address) ? "`address` LIKE '%' AND " : "CONCAT(`address`) LIKE  '%$address%' AND ";
     $query .= empty($city) ? "`city` LIKE '%' AND " : "CONCAT(`city`) LIKE  '%$city%' AND ";
-    $query .= strcmp($specialty,"none") == 0 ? "`specialty` LIKE '%' AND " : "`specialty` = " . (strcmp($specialty,"General Doctor") == 0 ? "'\\r' AND " : "'$specialty' AND ");
+    $query .= empty(trim($specialty)) ? "`specialty` LIKE '%' AND " : "`specialty` LIKE " . (strcmp($specialty,"General Dentist") == 0 ? "'\\r' AND " : "'%$specialty%' AND ");
     $query .= empty($name) ? "CONCAT( first_name,  ' ', last_name ) LIKE '%' AND " : "CONCAT( first_name,  ' ', last_name ) LIKE  '%$name%' AND ";
     $query .= empty($photo) ? "`image` LIKE '%' AND " : "`image` != ' ' AND ";
-    $query .= empty($gender) ? "`gender` LIKE '%'" : "`gender` = '$gender'";
+    $query .= empty($gender) ? "`gender` LIKE '%' " : "`gender` LIKE '%$gender%' ";
     $query .= "ORDER BY RAND() LIMIT 40;";
-    
+
     $results = mysqli_query($conn, $query);
     $return = array();
     foreach(mysqli_fetch_all($results) as $row) {
