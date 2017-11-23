@@ -32,9 +32,7 @@ include 'functions.php';
                 $photo = isset($_POST['photo']) ? $_POST['photo'] : "";
                 $gender = $_POST['gender'];
                 
-                $conn = db_connect();
-                
-                $results = search($conn, $address, $city, $specialty, $name, $day, $fromto, $photo, $gender);
+                $results = search($address, $city, $specialty, $name, $day, $fromto, $photo, $gender);
                 
                 ?>
         <table id="results">
