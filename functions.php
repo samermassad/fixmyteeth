@@ -206,7 +206,7 @@ function display_search_bar() {
     </tr>
     <tr>
         <td>
-            <input type="submit" value="Search" />
+            <input type="submit" value="Search" name="submit"/>
         </td>
     </tr>
     </table>
