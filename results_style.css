@@ -24,7 +24,7 @@
     padding-bottom: 12px;
     text-align: center;
 	vertical-align: middle;
-	background-color: #217ECC;
+	background-color: #19cb87;
     color: white;
 }
 
@@ -42,11 +42,11 @@
 }
 
 #results_table tbody td:hover{
-    background-color: #a5f5d7;
+    background-color: #cef535;
 }
 
 #results_table tbody tr:hover{
-    background-color: #a5f5d7;
+    background-color: #cef535;
 }
 
 
