@@ -309,7 +309,7 @@ function display_search_bar() {
     </tr>
     </table>
     <div id="search">
-        <input type="submit" style="background:url(web_elements/search_button.png);height:100px;width:100px">
+        <input name="submit" type="submit" style="background:url(web_elements/search_button.png);height:100px;width:100px">
         </input>
     </div>
     </form>
