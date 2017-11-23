@@ -29,7 +29,10 @@ function db_connect() {
     return $conn;
 }
 
-function search($conn, $address, $city, $specialty, $name, $day, $fromto, $photo, $gender) {
+function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gender) {
+    $conn = db_connect();
+    
+    //create the query string
     $query = "SELECT * FROM `dentists` WHERE ";
     $query .= empty($address) ? "`address` LIKE '%' AND " : "CONCAT(`address`) LIKE  '%$address%' AND ";
     $query .= empty($city) ? "`city` LIKE '%' AND " : "CONCAT(`city`) LIKE  '%$city%' AND ";
@@ -38,27 +41,36 @@ function search($conn, $address, $city, $specialty, $name, $day, $fromto, $photo
     $query .= empty($photo) ? "`image` LIKE '%' AND " : "`image` != ' ' AND ";
     $query .= empty($gender) ? "`gender` LIKE '%'" : "`gender` = '$gender'";
     $query .= ";";
+    
     $results = mysqli_query($conn, $query);
     $return = array();
-    foreach(mysqli_fetch_all($results) as $key => $row) {
-        $row[9] = json_decode($row[9],true)[0];
-        $available = check_hours($day, $fromto, $row[9]);
+    foreach(mysqli_fetch_all($results) as $row) {
+        $available = true;
+        $row[9] = json_decode($row[9],true)[0];                                 //JSON decode the opening hours
+        if(array_filter($fromto)) {
+            echo "Checking availability";
+            $available = check_hours($day, $fromto, $row[9]);
+        }
         if($available)    $return[] = $row;
     }
     return $return;
 }
 
 function check_hours($day, $fromto, $hours) {
-    $from = strtotime($fromto[0]) ? strtotime($fromto[0]) : strtotime("23:59");
+    // check if the dentists is available in the searched period
+    // returns true if available
+    // returns false if not available
+    
+    $from = strtotime($fromto[0]) ? strtotime($fromto[0]) : strtotime("23:59"); //check if defined or not and assign the values
     $to = strtotime($fromto[1]) ? strtotime($fromto[1]) : strtotime("00:00");
     
     if(strcmp($day,"any") == 0) {
+        //returns true at first match
         foreach($hours as $value) {
-            //echo "Comparing $from with ".$value['open']." And $to with ".$value['close']." = ".($from >= $value['open'] && $to <= $value['close'])."<br />";
             if($from >= strtotime($value['open']) && $to <= strtotime($value['close']))   return true;
         }
     } else {
-        //echo "Comparing $from with ".$hours[$day]['open']." And $to with ".$hours[$day]['close'];
+        //check for a specific day
         if($from >= strtotime($hours[$day]['open']) && $to <= strtotime($hours[$day]['close']))   return true;
     }
     return false;
