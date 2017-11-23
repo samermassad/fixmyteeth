@@ -13,28 +13,28 @@ include "functions.php";
 </head>
 <body>
     <?php
-    //    if(isset($_POST['submit'])) {
+        if(isset($_POST['submit'])) {
         display_search_bar();
     ?>
 
     <div id="results-grid">
         <?php
-//                $address = $_POST['address'];
-//                $city = $_POST['city'];
-//                $specialty = $_POST['specialty'];
-//                $name = $_POST['name'];
-//                $day = $_POST['day'];
-//                $fromto = [$_POST['from'], $_POST['to']];
-//                $photo = isset($_POST['photo']) ? $_POST['photo'] : "";
-//                $gender = $_POST['gender'];
-                $address = "";
-                $city = "";
-                $specialty = "none";
-                $name = "lis";
-                $day = "any";
-                $fromto = ["", ""];
+                $address = $_POST['address'];
+                $city = $_POST['city'];
+                $specialty = $_POST['specialty'];
+                $name = $_POST['name'];
+                $day = $_POST['day'];
+                $fromto = [$_POST['from'], $_POST['to']];
                 $photo = isset($_POST['photo']) ? $_POST['photo'] : "";
-                $gender = "";
+                $gender = $_POST['gender'];
+//                $address = "";
+//                $city = "";
+//                $specialty = "none";
+//                $name = "lis";
+//                $day = "any";
+//                $fromto = ["", ""];
+//                $photo = isset($_POST['photo']) ? $_POST['photo'] : "";
+//                $gender = "";
                 
                 $results = search($address, $city, $specialty, $name, $day, $fromto, $photo, $gender);
                 ?>
@@ -57,28 +57,35 @@ include "functions.php";
             <?php 
             foreach($results as $key => $value) {
                 ?>
-            <tr onclick="window.location='profile.php?id=<?php echo $value[0]; ?>'">
+            <tr>
                 <th><?php echo $value[1]; ?></th>
                 <th><?php echo $value[2]; ?></th>
                 <th><?php echo $value[3]; ?></th>
                 <th><?php echo $value[4]; ?></th>
-                <th><?php echo $value[5]; ?></th>
+                <th><a target="_blank" href="https://www.google.fr/maps/search/<?php echo urlencode($value[5]); ?>"><?php echo $value[5]; ?></a></th>
                 <th><?php echo $value[6]; ?></th>
                 <th><?php echo $value[7]; ?></th>
                 <th><img src="<?php echo $value[8]; ?>" /></th>
-                <th><table id="hours_table">
-                         <?php
-                         if(is_null($value[9])) {
+                <th>
+                    <?php if(is_null($value[9])) {
                              echo "Unknown Opening Hours";
-                         } else {
-                             foreach($value[9] as $key => $value2) {
-                             $open = $value2['open'];
-                             $close = $value2['close'];
-                             echo "<tr><td>".ucfirst($key)." : </td><td>$open</td><td>-</td><td>$close</td></tr>";
-                         }
+                         } else { ?>
+                            <div id="show_hours" onclick="display_hours(this);">Display Hours</div>
+                            <div class="hours_table">               
+                            <table>
+                                
+                        <?php
+                            foreach($value[9] as $key => $value2) {
+                                $open = $value2['open'];
+                                $close = $value2['close'];
+                                echo "<tr><td>".ucfirst($key)." : </td><td>$open</td><td>-</td><td>$close</td></tr>";
+                            } ?>
+                            </table>
+                         </div>
+                    <?php
                          }
                          ?>   
-                    </table>
+                    
                 </th>
                 <th><?php echo empty(trim($value[10])) ? "General Dentist" : $value[10]; ?></th>
             </tr>
@@ -87,10 +94,26 @@ include "functions.php";
             ?>
             </tbody>
         </table>
+        <script>
+            function display_hours($row) {
+                $($row).next().animate({
+                    height: $($row).next().get(0).scrollHeight
+                }, 250, function(){
+                    $(this).height('auto');
+                });
+                $($row).attr('onclick','hide_hours(this)');
+                $($row).html('Hide Hours');
+            }
+            function hide_hours($row) {
+                $($row).next().animate({height:'0'});
+                $($row).attr('onclick','display_hours(this)');
+                $($row).html('Display Hours');
+            }
+        </script>
         <?php
-       ///     } else {
-       //         header("location:index.php");
-        //    }
+            } else {
+                header("location:index.php");
+            }
         ?>
     </div>
 </body>

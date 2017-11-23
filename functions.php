@@ -25,7 +25,7 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
     $query .= empty($name) ? "CONCAT( first_name,  ' ', last_name ) LIKE '%' AND " : "CONCAT( first_name,  ' ', last_name ) LIKE  '%$name%' AND ";
     $query .= empty($photo) ? "`image` LIKE '%' AND " : "`image` != ' ' AND ";
     $query .= empty($gender) ? "`gender` LIKE '%'" : "`gender` = '$gender'";
-    $query .= "ORDER BY RAND() LIMIT 10;";
+    $query .= "ORDER BY RAND() LIMIT 40;";
     
     $results = mysqli_query($conn, $query);
     $return = array();
@@ -33,7 +33,6 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
         $available = true;
         $row[9] = json_decode($row[9],true)[0];                                 //JSON decode the opening hours
         if(array_filter($fromto)) {
-            echo "Checking availability";
             $available = check_hours($day, $fromto, $row[9]);
         }
         if($available)    $return[] = $row;
