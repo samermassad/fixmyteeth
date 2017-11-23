@@ -19,14 +19,6 @@
     padding: 8px;
 }
 
-#results_table tr:nth-child(even){
-    background-color: #a3d7ff;
-}
-
-#results_table tbody tr:hover{
-    background-color: #6bf5c0;
-}
-
 #results_table thead th {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -36,7 +28,7 @@
     color: white;
 }
 
-#results_table tbody th {
+#results_table tbody td {
 	text-align: center;
 	vertical-align: middle;
 	padding: 10px;
@@ -45,6 +37,17 @@
     color: black;
 }
 
+#results_table tbody td:nth-child(even){
+    background-color: #a3d7ff;
+}
+
+#results_table tbody td:hover{
+    background-color: #6bf5c0;
+}
+
+#results_table tbody tr:hover{
+    background-color: #6bf5c0;
+}
 /*#results_table tr {
 	background-color: #a3d7ff;
 }*/

@@ -60,15 +60,15 @@ include "functions.php";
 				foreach($results as $key => $value) {
 					?>
 				<tr>
-					<th><?php echo $value[1]; ?></th>
-					<th><?php echo $value[2]; ?></th>
-					<th><?php echo $value[3]; ?></th>
-					<th><?php echo $value[4]; ?></th>
-					<th><a target="_blank" href="https://www.google.fr/maps/search/<?php echo urlencode($value[5]); ?>"><?php echo $value[5]; ?></a></th>
-					<th><?php echo $value[6]; ?></th>
-					<th><?php echo $value[7]; ?></th>
-					<th><img src="<?php echo $value[8]; ?>" /></th>
-					<th>
+					<td><?php echo $value[1]; ?></td>
+					<td><?php echo $value[2]; ?></td>
+					<td><?php echo $value[3]; ?></td>
+					<td><?php echo $value[4]; ?></td>
+					<td><a target="_blank" href="https://www.google.fr/maps/search/<?php echo urlencode($value[5]); ?>"><?php echo $value[5]; ?></a></th>
+					<td><?php echo $value[6]; ?></td>
+					<td><?php echo $value[7]; ?></td>
+					<td><img src="<?php echo $value[8]; ?>" /></td>
+					<td>
 						<?php if(is_null($value[9])) {
 								 echo "Unknown Opening Hours";
 							 } else { ?>
@@ -88,8 +88,8 @@ include "functions.php";
 							 }
 							 ?>   
 						
-					</th>
-					<th><?php echo empty(trim($value[10])) ? "General Dentist" : $value[10]; ?></th>
+					</td>
+					<td><?php echo empty(trim($value[10])) ? "General Dentist" : $value[10]; ?></td>
 				</tr>
 				<?php
 				}
