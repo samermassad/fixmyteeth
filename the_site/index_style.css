@@ -3,7 +3,7 @@
 
 img {
 	resize: both;
-    overflow: auto;
+        overflow: auto;
 	max-width:100%;
 }
 
@@ -28,14 +28,14 @@ table {
 }
 
 .input_field { position: relative; width:240px; }
-.input_field input { position: float; border:none: background:#fff; display:block; width: 100%; box-sizing: border-box }
+.input_field input { position: float; border:none; background:#fff; display:block; width: 100%; box-sizing: border-box }
 .input_field img { position: float; top: 2px; right: 5px }
 
 /*                container dimension                    */
 #container {
 	max-width: 100%; 
 	position:fixed;
-    width: 100%;
+        width: 100%;
 }
 
 #background_00 {
@@ -319,7 +319,7 @@ label {
 /*** TEST */
 
 
-@media only screen and (max-device-width: 480px) {
+@media only screen and (max-device-width: 768px) {
         div#wrapper {
             width: 400px;
         }
