@@ -18,7 +18,7 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
  <style>
 	.container{position:relative}
 	.copyrignt{position:absolute;top:650px}
-	.tables{position:absolute;top:500px}
+	.tables{position:absolute;top:-10px}
 	</style>
 </head>
 
@@ -46,44 +46,43 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
       </div>  <!-- End Slider Container -->
     </div>
   <div class="tables" id="tables">
-  <form action="results.php" method="post">
-    <table>
+    <table><table onclick="MM_effectSlide('tables', 1000, '100%', '85%', true);MM_effectSlide('content-slider', 1000, '100%', '85%', false)">
     <tr>
     <th>
-    <div id="whitespace1"><img src="web_elements/space_ss.png" /></div>
+    <img src="web_elements/space_ss.jpg" />
     </th>
     <th>
     <div class="group">
-      <input name="address" type="text"/><span class="highlight"></span><span class="bar"></span>
+      <input type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Locate Dentist (Address)</label>
     </div>
     </th>
     <th>
     <div class="group">
-      <input name="city" type="text"/><span class="highlight"></span><span class="bar"></span>
+      <input type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Your City</label>
     </div>
     </th>
     <th>
     <div class="group">
-      <input name="specialty" type="text"/><span class="highlight"></span><span class="bar"></span>
+      <input type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Speciality</label>
     </div>
     </th>
     <th>
     <div class="group">
-      <input name="name" type="text"/><span class="highlight"></span><span class="bar"></span>
+      <input type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Doctor Name</label>
     </div>
     </th>
     </tr>
     <tr>
     <td>
-    <div id="whitespace"><img src="web_elements/space_ss.png" /></div>
+    <img src="web_elements/space_ss.jpg" />
     </td>
     <td>
     <div class="group">
-     <input name="day" type="text" list="browser1"/><span class="highlight"></span><span class="bar"></span>
+     <input type="text" list="browser1"/><span class="highlight"></span><span class="bar"></span>
      <label>Weekdays</label>
         <datalist id="browser1">
  		<option value="Monday">
@@ -98,7 +97,7 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
     </td>
     <td>
     <div class="group">
-     <input from="from" type="text" list="browser0"/><span class="highlight"></span><span class="bar"></span>
+     <input type="text" list="browser0"/><span class="highlight"></span><span class="bar"></span>
      <label>Time Schedule(24h format)</label>
         <datalist id="browser0">
  		<option value="00:00">
@@ -155,7 +154,7 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
     </td>
     <td>
     <div class="group">
-     <input name="gender" type="text" list="browser2"/><span class="highlight"></span><span class="bar"></span>
+     <input type="text" list="browser2"/><span class="highlight"></span><span class="bar"></span>
      <label>Gender</label>
         <datalist id="browser2">
  		<option value="Male">
@@ -166,7 +165,7 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
     </td>
     <td>
     <div class="group">
-     <input name="photo" type="text" list="browser3"/><span class="highlight"></span><span class="bar"></span>
+     <input type="text" list="browser3"/><span class="highlight"></span><span class="bar"></span>
      <label>Photo(Yes/No?)</label>
      	<datalist id="browser3">
  		<option value="Yes">
@@ -177,8 +176,7 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
     </td>
     </tr>
     </table>
-    </form>
-  </div>
+    </div>
     <div class="copyrignt" id="copyright">
 	<img src="web_elements/footbanner.jpg"/>
     </div>

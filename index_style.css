@@ -1,4 +1,14 @@
 @charset "utf-8";
+@font-face {
+         font-family: 'ChunkFiveRegular';
+         src: url('Chunkfive-webfont.eot');
+         src: url('Chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
+         url('Chunkfive-webfont.woff') format('woff'),
+         url('Chunkfive-webfont.ttf') format('truetype'),
+         url('Chunkfive-webfont.svg#ChunkFiveRegular') format('svg');
+         font-weight: normal;
+         font-style: normal;
+}
 /* CSS Document */
 
 img {
@@ -18,26 +28,27 @@ li {
 	width: 100%;
 	
 }
-
-form {
+#search_table {
 	position:absolute;
-}
-
-table {
-	position:fixed;
-    bottom: 14%;
+        bottom: 0px;
 	max-width: 100%;
 	width: 100%;
 	resize:both;
 	
 }
 
-#whitespace{
-	z-index:-100
+#results_table {
+    border-collapse: collapse;
+    width: 100%;
 }
-#whitespace1{
-	z-index:-100
-}
+
+#results_table th, #results_table td { border-bottom: 1px solid #ddd; }
+
+#results_table tbody tr {cursor: pointer;}
+#results_table tbody tr:hover {background-color:#f5f5f5;}
+
+#hours_table { margin: auto; }
+
 .input_field { position: relative; width:240px; }
 .input_field input { position: float; border:none; background:#fff; display:block; width: 100%; box-sizing: border-box }
 .input_field img { position: float; top: 2px; right: 5px }
