@@ -30,10 +30,3 @@ function search($conn, $address, $city, $specialty, $name) {
     }
     return $return;
 }
-
-function json($json, $id) {
-    $query = "SELECT * FROM dentists WHERE id = $id";
-    $conn = db_connect();
-    $results = mysqli_query($conn, $query);
-    return json_decode(mysqli_fetch_row($results)[9],true);
-}

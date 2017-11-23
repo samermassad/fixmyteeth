@@ -54,9 +54,9 @@ include 'functions.php';
                 <th><?php echo $value[7]; ?></th>
                 <th><img src="<?php echo $value[8]; ?>" /></th>
                  <th><table>
-                         <?php foreach($hours[0] as $key => $value) {
-                             $open = $value['open'];
-                             $close = $value['close'];
+                         <?php foreach($hours[0] as $key => $value2) {
+                             $open = $value2['open'];
+                             $close = $value2['close'];
                              echo "<tr><td>$key</td><td>$open</td><td>$close</td></tr>";
                          } ?>
                     </table>
