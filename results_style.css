@@ -38,15 +38,15 @@
 }
 
 #results_table tbody td:nth-child(even){
-    background-color: #a3d7ff;
+    background-color: #19f9b0;
 }
 
 #results_table tbody td:hover{
-    background-color: #cef535;
+    background-color: #5ee8f5;
 }
 
 #results_table tbody tr:hover{
-    background-color: #cef535;
+    background-color: #5ee8f5;
 }
 
 
