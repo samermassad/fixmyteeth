@@ -136,15 +136,16 @@ function display_search_bar() {
     <th>
     <div class="group">
       <input name="specialty" type="text"/><span class="highlight"></span><span class="bar"></span>
-      <label>Specialty</label>
+      <label>Weekdays</label>
         <datalist id="browser1">
-            <?php 
-                $specialties = get_specilties();
-                foreach($specialties as $specialty) {
-                    echo "<option value='$specialty'>";
-                }
-            ?>
-		</datalist>
+            <option value="Monday">
+            <option value="Tuesday">
+            <option value="Wednesday">
+            <option value="Thursday">
+            <option value="Saturday">
+            <option value="Sunday">
+            <option value="Any">
+	</datalist>
     </div>
     </th>
     <th>
@@ -163,14 +164,14 @@ function display_search_bar() {
      <input name="day" type="text" list="browser1"/><span class="highlight"></span><span class="bar"></span>
      <label>Weekdays</label>
         <datalist id="browser1">
- 		<option value="Monday">
-  		<option value="Tuesday">
- 		<option value="Wednesday">
-  		<option value="Thursday">
- 		<option value="Saturday">
-  		<option value="Sunday">
-        <option value="Any">
-		</datalist>
+            <option value="Monday">
+            <option value="Tuesday">
+            <option value="Wednesday">
+            <option value="Thursday">
+            <option value="Saturday">
+            <option value="Sunday">
+            <option value="Any">
+	</datalist>
     </div>
     </td>
     <td>
