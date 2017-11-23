@@ -1,6 +1,31 @@
 @charset "utf-8";
 /* CSS Document */
 
+#search {
+	position: fixed;
+	margin-top:70%;
+	margin-left:87%;
+	bottom: 4%;
+
+}
+
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+
 img {
 	resize: both;
         overflow: auto;
@@ -25,10 +50,17 @@ form {
 
 table {
 	position:fixed;
-    bottom: 14%;
-	max-width: 100%;
+    bottom: 8.7%;
+	max-width: 97%;
 	width: 100%;
 	resize:both;
+	
+}
+#lower {
+	max-width: 90%;
+	width: 90%;
+	hieght:80%;
+	bottom: 0%;
 	
 }
 
@@ -123,14 +155,14 @@ position:fixed;
 /* ANIMATION */
 
 @keyframes cycle {
-   0%  { top: 0px; } /* When you start the slide, the first image is already visible */
-   0%  { top: 0px; } /* Original Position */
+   0%  { top: 0px; opacity:0} /* When you start the slide, the first image is already visible */
+   4%  { top: 0px; opacity:1} /* Original Position */
    20% { top: 0px; opacity:1; z-index:0; } /* From 4% to 16 % = for 3 seconds the image is visible */
    26% { top: 325px; opacity: 0; z-index: 0; } /* From 16% to 20% = for 1 second exit image */
    31% { top: -325px; opacity: 0; z-index: -1; } /* Return to Original Position */
    92% { top: -325px; opacity: 0; z-index: 0; }
    96% { top: -325px; opacity: 0; } /* From 96% to 100% = for 1 second enter image*/
-   100%{ top: 0px; opacity: 1; }
+   100%{ top: 0px; opacity: 0; }
 }
 
 @keyframes cycletwo {
@@ -193,7 +225,7 @@ form h1 {
   font-size: 3em;
   font-weight: 300;
   text-align: center;
-  color: #2196F3;
+  color: #168ca1;
 }
 form h5 {
   text-align: center;
@@ -201,7 +233,7 @@ form h5 {
   color: #c6c6c6;
 }
 form hr.sep {
-  background: #2196F3;
+  background: #168ca1;
   box-shadow: none;
   border: none;
   height: 2px;
@@ -223,15 +255,15 @@ textarea {
 
 input,
 textarea {
-  background: none;
-  color: #252d2d;
-  font-size: 18px;
-  padding: 10px 5px 5px 5px;
-  display: block;
-  width: 200px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #ffffff;
+	background: none;
+	color: #168ca1;
+	font-size: 18px;
+	padding: 10px 5px 5px 5px;
+	display: block;
+	width: 160px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #ffffff;
 }
 input:focus,
 textarea:focus {
@@ -242,24 +274,30 @@ textarea:focus ~ label,
 textarea:valid ~ label {
   top: -14px;
   font-size: 12px;
-  color: #b0e7e6;
+  color: #168ca1;
 }
 input:focus ~ .bar:before,
 textarea:focus ~ .bar:before {
   width: 200px;
 }
 
+input:focus ~ .bar0:before,
+textarea:focus ~ .bar0:before {
+  width: 100px;
+}
+
+
 
 label {
-  color: #c6c6c6;
-  font-size: 16px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  -webkit-transition: 300ms ease all;
-  transition: 300ms ease all;
+	color: #168ca1;
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 6px;
+	top: 12px;
+	-webkit-transition: 300ms ease all;
+	transition: 300ms ease all;
 }
 
 .bar {
@@ -267,13 +305,32 @@ label {
   display: block;
   width: 200px;
 }
+
+.bar0 {
+  position: relative;
+  display: block;
+  width: 100px;
+}
+
 .bar:before {
   content: '';
   height: 2px;
   width: 0;
   bottom: 0px;
   position: absolute;
-  background: #b0e7e6;
+  background: #168ca1;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+  left: 0%;
+}
+
+.bar0:before {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #168ca1;
   -webkit-transition: 300ms ease all;
   transition: 300ms ease all;
   left: 0%;
@@ -298,29 +355,21 @@ label {
   box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
 }
 .btn.btn-link {
-  background: #b0e7e6;
-  color: #d3f6fd;
+  background: #168ca1;
+  color: #168ca1;
 }
 .btn.btn-link:hover {
-  background: #0d8aee;
-  color: #def8fd;
+  background: #168ca1;
+  color: #168ca1;
 }
 .btn.btn-submit {
-  background: #b0e7e6;
-  color: #bcf3fb;
+  background: #168ca16;
+  color: #168ca1;
 }
 .btn.btn-submit:hover {
-  background: #0d8aee;
-  color: #deeffd;
+  background: #168ca1;
+  color: #168ca1;
 }
-.btn.btn-cancel {
-  background: #eee;
-}
-.btn.btn-cancel:hover {
-  background: #e1e1e1;
-  color: #ffffff;
-}
-
 .btn-box {
   text-align: center;
   margin: 10px 0;
@@ -357,3 +406,11 @@ label {
         }
     }
 	
+.copyrignt {
+	
+	position:fixed;
+	width:100%;
+	margin-top:70%;
+	z-index:999;
+	
+}

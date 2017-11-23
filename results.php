@@ -28,14 +28,6 @@ include "functions.php";
                 $fromto = [$_POST['from'], $_POST['to']];
                 $photo = isset($_POST['photo']) ? $_POST['photo'] : "";
                 $gender = $_POST['gender'];
-//                $address = "";
-//                $city = "";
-//                $specialty = "none";
-//                $name = "lis";
-//                $day = "any";
-//                $fromto = ["", ""];
-//                $photo = isset($_POST['photo']) ? $_POST['photo'] : "";
-//                $gender = "";
                 
                 $results = search($address, $city, $specialty, $name, $day, $fromto, $photo, $gender);
                 ?>
