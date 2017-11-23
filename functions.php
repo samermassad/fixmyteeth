@@ -1,19 +1,4 @@
 <?php
-
-$aResult = array();
-if(isset($_POST['functionName']) && !empty($_POST['functionName'])){
-    switch($_POST['functionName']) {
-                case 'search2':
-                       $aResult['result'] = search2($_POST['arguments'][0], $_POST['arguments'][1], $_POST['arguments'][2], $_POST['arguments'][3]);
-                       echo $aResult;
-                   break;
-
-                default:
-                   $aResult['error'] = 'Not found function '.$_POST['functionName'].'!';
-                   break;
-            }
-}
-
 function db_connect() {
     $servername = "localhost";
     $username = "server";
@@ -25,13 +10,13 @@ function db_connect() {
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
-    } 
+    }
     return $conn;
 }
 
 function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gender) {
     $conn = db_connect();
-    
+
     //create the query string
     $query = "SELECT * FROM `dentists` WHERE ";
     $query .= empty($address) ? "`address` LIKE '%' AND " : "CONCAT(`address`) LIKE  '%$address%' AND ";
@@ -41,7 +26,7 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
     $query .= empty($photo) ? "`image` LIKE '%' AND " : "`image` != ' ' AND ";
     $query .= empty($gender) ? "`gender` LIKE '%'" : "`gender` = '$gender'";
     $query .= ";";
-    
+
     $results = mysqli_query($conn, $query);
     $return = array();
     foreach(mysqli_fetch_all($results) as $row) {
@@ -60,10 +45,10 @@ function check_hours($day, $fromto, $hours) {
     // check if the dentists is available in the searched period
     // returns true if available
     // returns false if not available
-    
+
     $from = strtotime($fromto[0]) ? strtotime($fromto[0]) : strtotime("23:59"); //check if defined or not and assign the values
     $to = strtotime($fromto[1]) ? strtotime($fromto[1]) : strtotime("00:00");
-    
+
     if(strcmp($day,"any") == 0) {
         //returns true at first match
         foreach($hours as $value) {
@@ -75,22 +60,141 @@ function check_hours($day, $fromto, $hours) {
     }
     return false;
 }
-function search2($address, $city, $specialty, $name) {
-    echo '<script language="javascript">alert("en search 2");</script>';
 
+function get_specilties() {
     $conn = db_connect();
-    $query = "SELECT * FROM dentists WHERE ";
-    $query .= empty($address) ? "" : "CONCAT(address) LIKE  '%$address%';";
-    $query .= empty($city) ? "" : "CONCAT(city) LIKE  '%$city%';";
-    $query .= empty($specialty) ? "" : "specialty = '$specialty' AND ";
-    $query .= empty($name) ? "" : "CONCAT( first_name,  ' ', last_name ) LIKE  '%$name%';";
-    $results = mysqli_query($conn, $query);
-    $return = array();
-    foreach(mysqli_fetch_all($results) as $key => $row) {
-        $return[$key] = array();
-        foreach($row as $field) {
-            $return[$key][] = $field;
-        }
+    $result = mysqli_query($conn, "SELECT `specialty` FROM dentists; ");
+    $storeArray = Array();
+    while ($row = mysqli_fetch_array($result, true)) {
+        if(empty(trim($row['specialty'])))   $row['specialty'] = "General Dentist";
+        if(!in_array($row['specialty'], $storeArray)) $storeArray[] = $row['specialty'];
     }
-    return $return;
+    var_dump($storeArray);
+}
+
+function display_search_bar() {
+    ?>
+<form method="post" action="result.php">
+    <table>
+    <tr>
+    <th>
+    <div class="group">
+      <input type="text"/><span class="highlight"></span><span class="bar"></span>
+      <label>Locate Dentist (Address)</label>
+    </div>
+    </th>
+    <th>
+    <div class="group">
+      <input type="text"/><span class="highlight"></span><span class="bar"></span>
+      <label>Your City</label>
+    </div>
+    </th>
+    <th>
+    <div class="group">
+      <input type="text"/><span class="highlight"></span><span class="bar"></span>
+      <label>Specialty</label>
+    </div>
+    </th>
+    <th>
+    <div class="group">
+      <input type="text"/><span class="highlight"></span><span class="bar"></span>
+      <label>Doctor Name</label>
+    </div>
+    </th>
+    </tr>
+    <tr>
+    <td>
+    <div class="group">
+     <input type="text" list="browser1"/><span class="highlight"></span><span class="bar"></span>
+     <label>Day</label>
+        <datalist id="browser1">
+                <option value="Not to specify">
+ 		<option value="Monday">
+  		<option value="Tuesday">
+ 		<option value="Wednesday">
+  		<option value="Thursday">
+ 		<option value="Saturday">
+  		<option value="Sunday">
+	</datalist>
+    </div>
+    </td>
+    <td>
+    <div class="group">
+     <input type="text" list="browser0"/><span class="highlight"></span><span class="bar"></span>
+     <label>Time Schedule(24h format)</label>
+        <datalist id="browser0">
+            <option value="Not to specify">
+            <option value="00:00">
+            <option value="00:30">
+            <option value="01:00">
+            <option value="01:30">
+            <option value="02:00">
+            <option value="02:30">
+            <option value="03:00">
+            <option value="03:30">
+            <option value="04:00">
+            <option value="04:30">
+            <option value="05:00">
+            <option value="05:30">
+            <option value="06:00">
+            <option value="06:30">
+            <option value="07:00">
+            <option value="07:30">
+            <option value="08:00">
+            <option value="08:30">
+            <option value="09:00">
+            <option value="09:30">
+            <option value="10:00">
+            <option value="10:30">
+            <option value="11:00">
+            <option value="11:30">
+            <option value="12:00">
+            <option value="12:30">
+            <option value="13:00">
+            <option value="13:30">
+            <option value="14:00">
+            <option value="14:30">
+            <option value="15:00">
+            <option value="15:30">
+            <option value="16:00">
+            <option value="16:30">
+            <option value="17:00">
+            <option value="17:30">
+            <option value="18:00">
+            <option value="18:30">
+            <option value="19:00">
+            <option value="19:30">
+            <option value="20:00">
+            <option value="20:30">
+            <option value="21:00">
+            <option value="21:30">
+            <option value="22:00">
+            <option value="22:30">
+            <option value="23:00">
+            <option value="23:30">
+        </datalist>
+    </div>
+    </td>
+    <td>
+    <div class="group">
+     <input type="text" list="browser2"/><span class="highlight"></span><span class="bar"></span>
+     <label>Gender</label>
+        <datalist id="browser2">
+            <option value="Not to specify">
+            <option value="Female">
+            <option value="Male">
+	</datalist>
+    </div>
+    </td>
+    <td>
+    <div class="group">
+     <input type="text" list="browser3"/><span class="highlight"></span><span class="bar"></span>
+     <label>Photo?</label>
+     <input type="checkbox" value="Photo?" />
+    </div>
+    </td>
+    </tr>
+    </table>
+</form>
+<?php
 }

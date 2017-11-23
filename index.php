@@ -26,6 +26,7 @@ include 'functions.php';
             <input type="submit" name="submit">
         </form>
         <?php
+            get_specilties();
             if(isset($_POST['submit'])) {
                 $address = $_POST['address'];
                 $city = $_POST['city'];
