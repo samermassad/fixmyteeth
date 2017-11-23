@@ -25,7 +25,7 @@ function search($conn, $address, $city, $specialty, $name) {
     foreach(mysqli_fetch_all($results) as $key => $row) {
         $return[$key] = array();
         foreach($row as $field) {
-            $return[$key][] = htmlspecialchars($field);
+            $return[$key][] = $field;
         }
     }
     return $return;
