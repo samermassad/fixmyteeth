@@ -52,8 +52,8 @@ include 'functions.php';
                 <th><?php echo $value[6]; ?></th>
                 <th><?php echo $value[7]; ?></th>
                 <th><img src="<?php echo $value[8]; ?>" /></th>
-                <th><?php echo $value[9]; ?></th>
-                <th><?php echo $value[10]; ?></th>
+                <th><?php echo var_dump(json_decode($value[9])); ?></th>
+                <th><?php echo empty(trim($value[10])) ? "General Dentist" : $value[10]; ?></th>
             </tr>
             <?php
             }
