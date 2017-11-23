@@ -67,7 +67,8 @@ include "functions.php";
                 <th><?php echo $value[7]; ?></th>
                 <th><img src="<?php echo $value[8]; ?>" /></th>
                 <th><table id="hours_table">
-                         <?php foreach($value[9] as $key => $value2) {
+                         <?php 
+                            foreach($value[9] as $key => $value2) {
                              $open = $value2['open'];
                              $close = $value2['close'];
                              echo "<tr><td>".ucfirst($key)." : </td><td>$open</td><td>-</td><td>$close</td></tr>";
