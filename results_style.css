@@ -9,8 +9,8 @@
 
 
 #results_table {
-    /*border-collapse: collapse;*/
 	border-collapse: collapse;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     width: 100%;
 }
 
@@ -42,15 +42,13 @@
 }
 
 #results_table tbody td:hover{
-    background-color: #6bf5c0;
+    background-color: #a5f5d7;
 }
 
 #results_table tbody tr:hover{
-    background-color: #6bf5c0;
+    background-color: #a5f5d7;
 }
-/*#results_table tr {
-	background-color: #a3d7ff;
-}*/
+
 
 
 
