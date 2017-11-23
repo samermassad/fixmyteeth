@@ -1,4 +1,19 @@
 <?php
+
+$aResult = array();
+if(isset($_POST['functionName']) && !empty($_POST['functionName'])){
+    switch($_POST['functionName']) {
+                case 'search2':
+                       $aResult['result'] = search2($_POST['arguments'][0], $_POST['arguments'][1], $_POST['arguments'][2], $_POST['arguments'][3]);
+                       echo $aResult;
+                   break;
+
+                default:
+                   $aResult['error'] = 'Not found function '.$_POST['functionName'].'!';
+                   break;
+            }
+}
+
 function db_connect() {
     $servername = "localhost";
     $username = "server";
@@ -47,4 +62,23 @@ function check_hours($day, $fromto, $hours) {
         if($from >= strtotime($hours[$day]['open']) && $to <= strtotime($hours[$day]['close']))   return true;
     }
     return false;
+}
+function search2($address, $city, $specialty, $name) {
+    echo '<script language="javascript">alert("en search 2");</script>';
+
+    $conn = db_connect();
+    $query = "SELECT * FROM dentists WHERE ";
+    $query .= empty($address) ? "" : "CONCAT(address) LIKE  '%$address%';";
+    $query .= empty($city) ? "" : "CONCAT(city) LIKE  '%$city%';";
+    $query .= empty($specialty) ? "" : "specialty = '$specialty' AND ";
+    $query .= empty($name) ? "" : "CONCAT( first_name,  ' ', last_name ) LIKE  '%$name%';";
+    $results = mysqli_query($conn, $query);
+    $return = array();
+    foreach(mysqli_fetch_all($results) as $key => $row) {
+        $return[$key] = array();
+        foreach($row as $field) {
+            $return[$key][] = $field;
+        }
+    }
+    return $return;
 }
