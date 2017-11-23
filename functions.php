@@ -26,7 +26,7 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
     $query .= empty($photo) ? "`image` LIKE '%' AND " : "`image` != ' ' AND ";
     $query .= empty($gender) ? "`gender` LIKE '%'" : "`gender` = '$gender'";
     $query .= ";";
-
+    
     $results = mysqli_query($conn, $query);
     $return = array();
     foreach(mysqli_fetch_all($results) as $row) {
@@ -38,7 +38,7 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
         }
         if($available)    $return[] = $row;
     }
-    return json_encode($return);
+    return $return;
 }
 
 function check_hours($day, $fromto, $hours) {
@@ -69,7 +69,7 @@ function get_specilties() {
         if(empty(trim($row['specialty'])))   $row['specialty'] = "General Dentist";
         if(!in_array($row['specialty'], $storeArray)) $storeArray[] = $row['specialty'];
     }
-    var_dump($storeArray);
+    return $storeArray;
 }
 
 function display_search_bar() {
