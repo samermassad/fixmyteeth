@@ -118,42 +118,41 @@ function display_search_bar() {
   <form action="results.php" method="post">
     <table>
     <tr>
-    <th>
+    <td>
     <div id="whitespace1"><img src="web_elements/space_ss.png" /></div>
-    </th>
-    <th>
+    </td>
+    <td>
     <div class="group">
       <input name="address" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Locate Dentist (Address)</label>
     </div>
-    </th>
-    <th>
+    </td>
+    <td>
     <div class="group">
       <input name="city" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Your City</label>
     </div>
-    </th>
-    <th>
+    </td>
+    <td>
     <div class="group">
       <input name="specialty" type="text"/><span class="highlight"></span><span class="bar"></span>
-      <label>Weekdays</label>
+      <label>Specialty</label>
         <datalist id="browser1">
-            <option value="Monday">
-            <option value="Tuesday">
-            <option value="Wednesday">
-            <option value="Thursday">
-            <option value="Saturday">
-            <option value="Sunday">
-            <option value="Any">
+            <?php 
+                $specialties = get_specilties();
+                foreach($specialties as $specialty) {
+                    echo "<option value='$specialty'>";
+                }
+            ?>
 	</datalist>
     </div>
-    </th>
-    <th>
+    </td>
+    <td>
     <div class="group">
       <input name="name" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Doctor Name</label>
     </div>
-    </th>
+    </td>
     </tr>
     <tr>
     <td>
