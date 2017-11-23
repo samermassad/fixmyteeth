@@ -6,13 +6,24 @@
     <script src="handlers.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous" ></script>
+    <script src="SpryAssets/SpryEffects.js" type="text/javascript"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
+<script type="text/javascript">
+function MM_effectSlide(targetElement, duration, from, to, toggle)
+{
+	Spry.Effect.DoSlide(targetElement, {duration: duration, from: from, to: to, toggle: toggle});
+}
+</script>
+ <style>
+	.container{position:relative}
+	.copyrignt{position:absolute;top:650px}
+	.tables{position:absolute;top:-10px}
+	</style>
 </head>
 
 <body>
-
-	<div id="container">
+<div class="container" id="container">
         <div id="content-slider">
       <div id="slider">  <!-- Slider container -->
          <div id="mask">  <!-- Mask -->
@@ -34,7 +45,8 @@
          <div class="progress-bar"></div>  <!-- Progress Bar -->
       </div>  <!-- End Slider Container -->
     </div>
-    <table>
+  <div class="tables" id="tables">
+    <table onclick="MM_effectSlide('tables', 1000, '100%', '85%', true);MM_effectSlide('content-slider', 1000, '100%', '85%', false)">
     <tr>
     <th>
     <img src="web_elements/space_ss.jpg" />
@@ -164,7 +176,10 @@
     </td>
     </tr>
     </table>
-	<img src="web_elements/footbanner.jpg" />
+    </div>
+    <div class="copyrignt" id="copyright">
+	<img src="web_elements/footbanner.jpg"/>
+    </div>
 	</div>
 
 </body>
