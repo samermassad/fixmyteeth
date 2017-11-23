@@ -308,6 +308,10 @@ function display_search_bar() {
     </td>
     </tr>
     </table>
+    <div id="search">
+        <input type="submit" style="background:url(web_elements/search_button.png);height:100px;width:100px">
+        </input>
+    </div>
     </form>
   </div>
 <?php

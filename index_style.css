@@ -51,7 +51,7 @@ form {
 }
 
 table {
-    /*position:fixed;*/
+    position:fixed;
     bottom: 14%;
     max-width: 100%;
     width: 100%;
