@@ -62,7 +62,7 @@ include "functions.php";
                 <th><?php echo $value[2]; ?></th>
                 <th><?php echo $value[3]; ?></th>
                 <th><?php echo $value[4]; ?></th>
-                <th><a target="_blank" href="https://www.google.fr/maps/search/<?php echo $value[5]; ?>"><?php echo $value[5]; ?></a></th>
+                <th><a target="_blank" href="https://www.google.fr/maps/search/<?php echo urlencode($value[5]); ?>"><?php echo $value[5]; ?></a></th>
                 <th><?php echo $value[6]; ?></th>
                 <th><?php echo $value[7]; ?></th>
                 <th><img src="<?php echo $value[8]; ?>" /></th>

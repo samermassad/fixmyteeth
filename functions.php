@@ -33,7 +33,6 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
         $available = true;
         $row[9] = json_decode($row[9],true)[0];                                 //JSON decode the opening hours
         if(array_filter($fromto)) {
-            echo "Checking availability";
             $available = check_hours($day, $fromto, $row[9]);
         }
         if($available)    $return[] = $row;
