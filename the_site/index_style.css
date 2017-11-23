@@ -1,6 +1,24 @@
 @charset "utf-8";
 /* CSS Document */
 
+
+video#bgvid { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
+
 img {
 	resize: both;
         overflow: auto;
@@ -123,14 +141,14 @@ position:fixed;
 /* ANIMATION */
 
 @keyframes cycle {
-   0%  { top: 0px; } /* When you start the slide, the first image is already visible */
-   0%  { top: 0px; } /* Original Position */
+   0%  { top: 0px; opacity:0} /* When you start the slide, the first image is already visible */
+   4%  { top: 0px; opacity:1} /* Original Position */
    20% { top: 0px; opacity:1; z-index:0; } /* From 4% to 16 % = for 3 seconds the image is visible */
    26% { top: 325px; opacity: 0; z-index: 0; } /* From 16% to 20% = for 1 second exit image */
    31% { top: -325px; opacity: 0; z-index: -1; } /* Return to Original Position */
    92% { top: -325px; opacity: 0; z-index: 0; }
    96% { top: -325px; opacity: 0; } /* From 96% to 100% = for 1 second enter image*/
-   100%{ top: 0px; opacity: 1; }
+   100%{ top: 0px; opacity: 0; }
 }
 
 @keyframes cycletwo {
