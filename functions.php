@@ -135,9 +135,9 @@ function display_search_bar() {
     </td>
     <td>
     <div class="group">
-      <input name="specialty" type="text"/><span class="highlight"></span><span class="bar"></span>
+      <input name="specialty" type="text" list="browser5"/><span class="highlight"></span><span class="bar"></span>
       <label>Specialty</label>
-        <datalist id="browser1">
+        <datalist id="browser5">
             <?php 
                 $specialties = get_specilties();
                 foreach($specialties as $specialty) {
