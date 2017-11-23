@@ -25,7 +25,7 @@ function search($address, $city, $specialty, $name, $day, $fromto, $photo, $gend
     $query .= empty($name) ? "CONCAT( first_name,  ' ', last_name ) LIKE '%' AND " : "CONCAT( first_name,  ' ', last_name ) LIKE  '%$name%' AND ";
     $query .= empty($photo) ? "`image` LIKE '%' AND " : "`image` != ' ' AND ";
     $query .= empty($gender) ? "`gender` LIKE '%'" : "`gender` = '$gender'";
-    $query .= ";";
+    $query .= "ORDER BY RAND() LIMIT 10;";
     
     $results = mysqli_query($conn, $query);
     $return = array();
@@ -75,7 +75,7 @@ function get_specilties() {
 function display_search_bar() {
     ?>
 <form method="post" action="result.php">
-    <table>
+    <table id="source_table">
     <tr>
     <th>
     <div class="group">

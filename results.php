@@ -39,6 +39,7 @@ include "functions.php";
                 $results = search($address, $city, $specialty, $name, $day, $fromto, $photo, $gender);
                 ?>
         <table id="results_table">
+            <thead>
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
@@ -51,10 +52,12 @@ include "functions.php";
                 <th>Hours</th>
                 <th>Specialty</th>
             </tr>
+            </thead>
+            <tbody>
             <?php 
             foreach($results as $key => $value) {
                 ?>
-            <tr>
+            <tr onclick="window.location='profile?id=<?php echo $value[0]; ?>'">
                 <th><?php echo $value[1]; ?></th>
                 <th><?php echo $value[2]; ?></th>
                 <th><?php echo $value[3]; ?></th>
@@ -63,19 +66,20 @@ include "functions.php";
                 <th><?php echo $value[6]; ?></th>
                 <th><?php echo $value[7]; ?></th>
                 <th><img src="<?php echo $value[8]; ?>" /></th>
-                 <th><table>
+                <th><table id="hours_table">
                          <?php foreach($value[9] as $key => $value2) {
                              $open = $value2['open'];
                              $close = $value2['close'];
-                             echo "<tr><td>$key</td><td>$open</td><td>$close</td></tr>";
+                             echo "<tr><td>".ucfirst($key)." : </td><td>$open</td><td>-</td><td>$close</td></tr>";
                          } ?>
                     </table>
-                 </th>
+                </th>
                 <th><?php echo empty(trim($value[10])) ? "General Dentist" : $value[10]; ?></th>
             </tr>
             <?php
             }
             ?>
+            </tbody>
         </table>
         <?php
        ///     } else {
