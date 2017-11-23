@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel= "stylesheet" type="text/css" href="index_style.css" />
     <script src="handlers.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
@@ -13,27 +14,46 @@
 
 	<div id="container">
     <div id="background"><img src="web_elements/background.jpg" /></div>
-    <p></p>
     <table>
     <tr>
-    <th><img src="web_elements/space.jpg"></img></th>
-    <th><div id="location"><img src="web_elements/locate_icon.jpg"></img></div><div id="input"><input name="" type="text" img="web_elements/locate.jpg"></input></div></th>
-    <th><img src="web_elements/locate_icon.jpg"></img></th>
-    <th><img src="web_elements/space_s.jpg"></img></th>
-    <th><img src="web_elements/cityname.jpg"></img></th>
-    <th><img src="web_elements/space_s.jpg"></img></th>
-    <th><img src="web_elements/speciality.jpg"></img></th>
-    <th><img src="web_elements/space_s.jpg"></img></th>
-    <th><img src="web_elements/doctorname.jpg"></img></th>
-    <th><img src="web_elements/space_s.jpg"></img></th>
-    <th><img src="web_elements/calendar.jpg"></img></th>
-    <th><img src="web_elements/space_ss.jpg"></img></th>
-	<th><img src="web_elements/clock.jpg"></img></th>
-    <th><img src="web_elements/space_ss.jpg"></img></th>
-    <th><img src="web_elements/search.jpg"></img><th>
+    <th>
+    <img src="web_elements/space_ss.jpg" />
+    </th>
+    <th>
+    <div class="group">
+      <input type="text" required/><span class="highlight"></span><span class="bar"></span>
+      <label>Locate Dentist (Address)</label>
+    </div>
+    </th>
+    <th>
+    <div class="group">
+      <input type="text" required/><span class="highlight"></span><span class="bar"></span>
+      <label>Your City</label>
+    </div>
+    </th>
+    <th>
+    <div class="group">
+      <input type="text" required/><span class="highlight"></span><span class="bar"></span>
+      <label>Speciality</label>
+    </div>
+    </th>
+    <th>
+    <div class="group">
+      <input type="text" required/><span class="highlight"></span><span class="bar"></span>
+      <label>Doctor Name</label>
+    </div>
+    </th>
+     <th>
+    <div class="group">
+      <input type="text" required/><span class="highlight"></span><span class="bar"></span>
+      <label>Date(DD/MM/YYYY)</label>
+    </div>
+    </th>
+    </tr>
+    <tr>
     </tr>
     </table>
-
+	<img src="web_elements/footbanner.jpg" />
 	</div>
 
 </body>
