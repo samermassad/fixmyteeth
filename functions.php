@@ -62,10 +62,12 @@ function check_hours($day, $fromto, $hours) {
 
 function get_specilties() {
     $conn = db_connect();
+    echo "Connected <br />";
     $result = mysqli_query($conn, "SELECT `specialty` FROM dentists; ");
+    echo "Queried <br />";
     $storeArray = Array();
     while ($row = mysqli_fetch_array($result, true)) {
-        echo $row['specialty'];echo"<br />";
+        echo "While <br />";
         if(empty(trim($row['specialty'])))   $row['specialty'] = "General Dentist";
         if(!in_array($row['specialty'], $storeArray)) $storeArray[] = $row['specialty'];
     }
@@ -167,7 +169,6 @@ function display_search_bar() {
             <label>Specialty</label>
             <datalist id="browser5">
                 <?php
-                echo "1111111111111111111";
                 $specialties = get_specilties();
                 foreach($specialties as $specialty) {
                     echo "<option value='$specialty'>";
