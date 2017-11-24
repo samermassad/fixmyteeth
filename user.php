@@ -5,11 +5,7 @@ if(!isset($_SESSION)) {
     session_start();
 }
 
-var_dump($_SESSION);
-var_dump($_POST);
-
 if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
-    echo 1;
     $id = $_GET['save'];
     save_dentist($id);
     ?>
@@ -18,7 +14,6 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
         show_dentists();
 } else {
     if(isset($_POST['signin'])) {
-        echo 2;
     $username = $_POST['username'];
     $password = $_POST['password'];
     if(sign_in($username, $password)) {
@@ -33,7 +28,6 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
             }
         } else if (isset($_POST['signup'])){
             //Sign Up
-            echo 3;
             $username = $_POST['username'];
             $password1 = $_POST['password1'];
             $password2 = $_POST['password2'];
@@ -50,7 +44,6 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
         } else {
 
             if(user_signed_in()) {
-                echo 4;
                 //User has already signed in
                 ?>
         <a href="index.php">Home</a>  
@@ -58,7 +51,6 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
                 <?php   
                 show_dentists();
             } else {
-                echo 5;
                 //show Sign in // Sign up page
                 show_sign_in();
             }
