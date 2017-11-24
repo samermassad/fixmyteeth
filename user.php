@@ -4,7 +4,6 @@ include('functions.php');
 if(!isset($_SESSION)) { 
     session_start();
 }
-
 if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
     $id = $_GET['save'];
     save_dentist($id);

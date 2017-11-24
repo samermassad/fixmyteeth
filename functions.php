@@ -9,7 +9,7 @@ function db_connect() {
          $conn = new mysqli($servername, $username, $password, 'fixmyteeth') ;
     } catch (Exception $e ) {
          echo "Service unavailable";
-         echo "message: " . $e->message;   // not in live code obviously...
+         echo "message: " . $e->message;
          exit;
     }
     // Check connection
@@ -95,11 +95,12 @@ function sign_in($username, $password) {
     if( empty($val) ) {
        return false;
     } else {
-        if(!isset($_SESSION)) { 
+        if(!isset($_SESSION)) {
             session_start();
         }
         $_SESSION['loggedin'] = $val[0][0];
-        $_SESSION['contacted_dentists'] = json_decode($val[0][3]);
+        $json = json_decode($val[0][3]);
+        $_SESSION['contacted_dentists'] = is_null($json) ? " " : $json; 
         return true;
     }
 }
