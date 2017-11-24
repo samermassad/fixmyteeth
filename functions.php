@@ -66,14 +66,10 @@ function check_hours($day, $fromto, $hours) {
 }
 
 function get_specilties() {
-    echo "function";
     $conn = db_connect();
-    echo "Connected <br />";
     $result = mysqli_query($conn, "SELECT `specialty` FROM dentists; ");
-    echo "Queried <br />";
     $storeArray = Array();
     while ($row = mysqli_fetch_array($result, true)) {
-        echo "While <br />";
         if(empty(trim($row['specialty'])))   $row['specialty'] = "General Dentist";
         if(!in_array($row['specialty'], $storeArray)) $storeArray[] = $row['specialty'];
     }
