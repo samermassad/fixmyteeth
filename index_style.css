@@ -25,6 +25,7 @@ html, body {
     top: 261px;
     animation: slides 1s infinite;
     -webkit-animation: slides 1s infinite;
+    z-index: 99999;
 }
 
 
