@@ -10,7 +10,6 @@ include 'functions.php';
     </head>
     <body>
         <div class="container" id="container">
-<!--            <img src="web_elements/background.jpg" alt="Cougar"/>-->
             <?php
                 var_dump(function_exists('mysqli_connect'));
                 display_search_bar();
