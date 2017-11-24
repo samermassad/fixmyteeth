@@ -138,6 +138,9 @@ function save_dentist($id) {
         $dentists[] = $id;
         $query = "update users set contacted_dentists = '".json_encode($dentists)."' WHERE `id` = " . $_SESSION['loggedin'];
         if (mysqli_query($conn, $query)) {
+            if(empty(trim($_SESSION['contacted_dentists']))) {
+                $_SESSION['contacted_dentists'] = array();
+            }
             $_SESSION['contacted_dentists'][] = $id;
             return true;
         }
