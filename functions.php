@@ -5,10 +5,8 @@ function db_connect() {
     $username = "server";
     $password = "fixmyteeth";
     
-    mysqli_report(MYSQLI_REPORT_STRICT);
-
     try {
-        $conn = mysqli_connect($servername, $username, $password, 'fixmyteeth');
+         $conn = mysqli_connect($servername, $username, $password, 'fixmyteeth') ;
     } catch (Exception $e ) {
          echo "Service unavailable";
          echo "message: " . $e->message;   // not in live code obviously...
