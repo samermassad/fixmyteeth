@@ -1,5 +1,10 @@
 /* CSS Document for resultsPHP*/
-
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #f7f7f7;
+}
 
 
 table.results {
@@ -78,6 +83,9 @@ only screen and (max-width: 768px){
         border-bottom: 1px solid #eee;
         position: relative;
         padding-left: 10%;
+        background-color: #003f43;
+        text-align: left;
+        color: white;
     }
 
     table.results tbody td:before {
