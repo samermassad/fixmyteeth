@@ -5,7 +5,7 @@ include "functions.php";
 <html lang="en">
 <head>
     <link rel= "stylesheet" type="text/css" href="index_style.css" />
-	<link rel= "stylesheet" type="text/css" href="results_style.css" />
+    <link rel= "stylesheet" type="text/css" href="results_style.css" />
     <script src="handlers.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous" ></script>
@@ -49,7 +49,7 @@ include "functions.php";
 			</thead>
 			<tbody>
 			<?php 
-			foreach($results as $key => $value) {
+			foreach($results as $value) {
 				?>
 			<tr>
 				<td><?php echo $value[1]; ?></td>
@@ -88,24 +88,8 @@ include "functions.php";
 			?>
 			</tbody>
 		</table>
-		
-        <script>
-            function display_hours($row) {
-                $($row).next().animate({
-                    height: $($row).next().get(0).scrollHeight
-                }, 250, function(){
-                    $(this).height('auto');
-                });
-                $($row).attr('onclick','hide_hours(this)');
-                $($row).html('Hide Hours');
-            }
-            function hide_hours($row) {
-                $($row).next().animate({height:'0'});
-                $($row).attr('onclick','display_hours(this)');
-                $($row).html('Display Hours');
-            }
-        </script>
         <?php
+        get_hours_script();
             } else {
                 header("location:index.php");
             }
