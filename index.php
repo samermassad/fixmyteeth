@@ -5,8 +5,6 @@ include 'functions.php';
 <html>
     <head>
     <link rel= "stylesheet" type="text/css" href="index_style.css" />
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous" ></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
             .container {
@@ -39,7 +37,7 @@ include 'functions.php';
     </body>
     <script>
         function submit_form() {
-            $('#search_form').submit();
+            document.search_form.submit();
         }
     </script>
 </html>

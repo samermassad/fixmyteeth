@@ -172,7 +172,7 @@ function get_hours_script() {
 function display_search_bar() {
     ?>
 <div class="tables" id="tables">
-        <form id="search_form" action="results.php" method="post">
+        <form name="search_form" id="search_form" action="results.php" method="post">
           
     <table id="lower">
 
