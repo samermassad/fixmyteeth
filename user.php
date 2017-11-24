@@ -9,6 +9,7 @@ var_dump($_SESSION);
 var_dump($_POST);
 
 if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
+    echo 1;
     $id = $_GET['save'];
     save_dentist($id);
     ?>
@@ -17,6 +18,7 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
         show_dentists();
 } else {
     if(isset($_POST['signin'])) {
+        echo 2;
     $username = $_POST['username'];
     $password = $_POST['password'];
     if(sign_in($username, $password)) {
