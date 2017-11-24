@@ -65,10 +65,11 @@ function get_specilties() {
     $result = mysqli_query($conn, "SELECT `specialty` FROM dentists; ");
     $storeArray = Array();
     while ($row = mysqli_fetch_array($result, true)) {
+        echo $row['specialty'];echo"<br />";
         if(empty(trim($row['specialty'])))   $row['specialty'] = "General Dentist";
         if(!in_array($row['specialty'], $storeArray)) $storeArray[] = $row['specialty'];
     }
-    echo "<pre>";print_r($storeArray);echo"</pre>";
+    
     return $storeArray;
 }
 
