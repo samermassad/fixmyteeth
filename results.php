@@ -15,6 +15,7 @@ include "functions.php";
 <body>
     <?php
         if(isset($_POST['submit'])) {
+        display_search_bar();
     ?>
 
     <div id="results-grid">
@@ -29,7 +30,7 @@ include "functions.php";
                 $gender = $_POST['gender'];
                 
                 $results = search($address, $city, $specialty, $name, $day, $fromto, $photo, $gender);
-                ?>
+        ?>
         
 		<table class="results">
 			<thead>
@@ -49,7 +50,7 @@ include "functions.php";
 			<tbody>
 			<?php 
 			foreach($results as $value) {
-				?>
+			?>
 			<tr>
 				<th><?php echo $value[1]; ?></th>
 				<th><?php echo $value[2]; ?></th>
@@ -74,7 +75,7 @@ include "functions.php";
 								echo "<tr><td>".ucfirst($key)." : </td><td>$open</td><td>-</td><td>$close</td></tr>";
 							} ?>
 							</table>
-						 </div>
+							</div>
 					<?php
 						 }
 						 ?>   

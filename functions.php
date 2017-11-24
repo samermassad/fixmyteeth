@@ -1,6 +1,7 @@
 <?php
 function db_connect() {
     
+    echo "connecting";
     $servername = "localhost";
     $username = "server";
     $password = "fixmyteeth";
@@ -12,6 +13,7 @@ function db_connect() {
          echo "message: " . $e->message;   // not in live code obviously...
          exit;
     }
+    echo "connection";
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -66,10 +68,14 @@ function check_hours($day, $fromto, $hours) {
 }
 
 function get_specilties() {
+    echo "function";
     $conn = db_connect();
+    echo "Connected <br />";
     $result = mysqli_query($conn, "SELECT `specialty` FROM dentists; ");
+    echo "Queried <br />";
     $storeArray = Array();
     while ($row = mysqli_fetch_array($result, true)) {
+        echo "While <br />";
         if(empty(trim($row['specialty'])))   $row['specialty'] = "General Dentist";
         if(!in_array($row['specialty'], $storeArray)) $storeArray[] = $row['specialty'];
     }
@@ -148,16 +154,48 @@ function get_hours_script() {
 }
 
 function display_search_bar() {
+    $specialties = get_specilties();
     ?>
 <div class="tables" id="tables">
         <form action="results.php" method="post">
-            <table id="higher" align="">
+          <table id="higher">
                 <tr>
-                    <div class="group">
-                        <input name="address" type="text"/><span class="highlight"></span><span class="bar"></span>
-                        <label>Dentist Address</label>
-                    </div>
-                </tr>
+    <th>
+    <div class="group">
+      <input name="address" type="text"/><span class="highlight"></span><span class="bar"></span>
+      <label>Locate Dentist (Address)</label>
+    </div>
+    </th>
+    <th>
+    <div class="group">
+      <input name="city" type="text"/><span class="highlight"></span><span class="bar"></span>
+      <label>Your City</label>
+    </div>
+    </th>
+    <th>
+        <div class="group">
+            <input name="specialty" type="text" list="browser5"/><span class="highlight"></span><span class="bar"></span>
+            <label>Specialty</label>
+            <datalist id="browser5">
+                <?php
+                $specialties = get_specilties();
+                foreach($specialties as $specialty) {
+                    echo "<option value='$specialty'>";
+                }
+                ?>
+            </datalist>
+        </div>
+    </th>
+    <th>
+    <div class="group">
+      <input name="name" type="text"/><span class="highlight"></span><span class="bar"></span>
+      <label>Doctor Name</label>
+    </div>
+    </th>
+    </tr>
+    </table>
+    <table id="lower">
+
 
                 <tr>
                     <div class="group">

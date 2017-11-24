@@ -1,20 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
 
-
-html, body {
-            width: 100%;
-    max-width: 100%;
-    overflow-x: hidden;
-    height: 100%;
-    }
-
-    .image {
-        left: 20%;
-    top: 7%;
-    }
-    
-
 .bubble {
   background: #ffffff;
   border-radius: 25%;
@@ -58,33 +44,33 @@ html, body {
     top: 261px;
   }
     }
-
-
-.circle {
+	
+	
+.circle { 
 position:absolute;
-width: 340px;
-height: 340px;
+width: 340px; 
+height: 340px; 
   left:470px;
   top: 100px;
-background: #b8d6d0;
--moz-border-radius: 700px;
--webkit-border-radius: 700px;
-border-radius: 700px;
+background: #b8d6d0; 
+-moz-border-radius: 700px; 
+-webkit-border-radius: 700px; 
+border-radius: 700px; 
 }
 
-.circle2 {
+.circle2 { 
 position:absolute;
-width: 327px;
-height: 327px;
+width: 327px; 
+height: 327px; 
   left:476px;
   top: 106px;
-background: #7dbdb0;
--moz-border-radius: 700px;
--webkit-border-radius: 700px;
-border-radius: 700px;
+background: #7dbdb0; 
+-moz-border-radius: 700px; 
+-webkit-border-radius: 700px; 
+border-radius: 700px; 
 }
 
-.welcome {
+.welcome { 
 position:absolute;
 color: white;
 font-size:36px;
@@ -94,7 +80,7 @@ letter-spacing: 10px;
 }
 
 
-.welcome1 {
+.welcome1 { 
 position:absolute;
 color: white;
 font-size:14px;
@@ -103,7 +89,7 @@ letter-spacing: 13px;
   top: 146px;
 }
 
-.welcome2 {
+.welcome2 { 
 position:absolute;
 color: white;
 font-size:11px;
@@ -112,21 +98,22 @@ letter-spacing: 6.4px;
   top: 206px;
 }
 
-.teeth {
+.teeth { 
 position:absolute;
   left:589px;
   top: 284px;
 }
 
 .arrow-down {
-    position: relative;
-    width: 0;
-    height: 0;
-    left: 254px;
-    top: 70px;
-    border-left: 70px solid transparent;
-    border-right: 70px solid transparent;
-    border-top: 70px solid #b8d6d0;
+  position:relative;
+  width: 0; 
+  height: 0; 
+  left:200px;
+  top: 85px;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-top: 70px solid #b8d6d0;
+  
 }
 
 form {
@@ -161,52 +148,16 @@ form {
 	position:absolute;
 }
 
-table {
-    /*position:fixed;*/
-    bottom: 14%;
-    max-width: 100%;
-    width: 100%;
-    resize:both;
-
-}
-#lower {
-	max-width: 90%;
-	width: 90%;
-	hieght:80%;
-	bottom: 0%;
-
-}
-
-#whitespace{
-    z-index:-100
-}
-
-.hours_table {
-    margin: auto;
-    transition: all .2s ease-out;
-    height:0px;
-    overflow: hidden;
-}
-.hours_table table { margin: auto;  }
-#show_hours { cursor: pointer; }
-
-
-
-#whitespace1{
-	z-index:-100
-}
 .input_field { position: relative; width:240px; }
 .input_field input { position: float; border:none; background:#dde2e1; display:block; width: 100%; box-sizing: border-box }
 .input_field img { position: float; top: 2px; right: 5px }
 
 /*                container dimension                    */
 #container {
-    overflow: hidden;
-    position: fixed;
-    width: 450px;
-    top: 5%;
-    height: 98%;
-    margin-left: 5%;
+	max-width: 100%; 
+	position:fixed;
+        width: 100%;
+        height: 98%;
 }
 
 /********************************/
@@ -228,19 +179,18 @@ body {
       50%  {background: #82bdb7;}
       100% {background: #6cb8a9;}
     }
-
-
+	
+	
     @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
     {
       0%   {background: #6cb8a9;}
       50%  {background: #82bdb7;}
       100% {background: #6cb8a9;}
-    }
+    }	
 
 form {
-    width: 100%;
-    margin: 0%;
-    height: 88%;
+  width: 200px;
+  margin: 15px auto;
 }
 form h1 {
   font-size: 3em;
@@ -276,15 +226,15 @@ textarea {
 
 input,
 textarea {
-    background: none;
-    color: #000000;
-    font-size: 18px;
-    padding: 10px 5px 5px 5px;
-    display: block;
-    width: 250px;
-    border: none;
-    border-radius: 0;
-    border-bottom: 1px solid #ffffff;
+	background: none;
+	color: #000000;
+	font-size: 18px;
+	padding: 10px 5px 5px 5px;
+	display: block;
+	width: 160px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #ffffff;
 }
 input:focus,
 textarea:focus {
@@ -293,7 +243,7 @@ textarea:focus {
 input:focus ~ label, input:valid ~ label,
 textarea:focus ~ label,
 textarea:valid ~ label {
-  top: -14px;
+  top: -21x;
   font-size: 12px;
   color: #ffffff;
 }
@@ -309,7 +259,7 @@ label {
 	position: absolute;
 	pointer-events: none;
 	left: 6px;
-	top: 12px;
+	top: 19px;
 	-webkit-transition: 300ms ease all;
 	transition: 300ms ease all;
 }
