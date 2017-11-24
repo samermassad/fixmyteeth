@@ -16,15 +16,14 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
     if(sign_in($username, $password)) {
-        echo "Success";
         ?>
         <a href="index.php">Home</a>  
         <a href="logout.php">Log out</a> 
                 <?php   
-                //show_dentists();
+                show_dentists();
             } else {
                 $msg = "ERROR! Wrong username or password.";
-                //show_sign_in($msg);
+                show_sign_in($msg);
             }
         } else if (isset($_POST['signup'])){
             //Sign Up
