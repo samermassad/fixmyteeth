@@ -1,14 +1,19 @@
 <?php
 include('functions.php');
-
 if(!isset($_SESSION)) { 
     session_start();
+}
+if(isset($_GET['logout'])) {
+    unset($_SESSION['loggedin']);
+    unset($_SESSION['contacted_dentists']);
+    header('location:user.php');
 }
 if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
     $id = $_GET['save'];
     save_dentist($id);
     ?>
-<a href="logout.php">Log out</a>    
+    <a href="index.php">Home</a>  
+    <a href="user.php?logout=1">Log out</a>     
         <?php   
         show_dentists();
 } else {
@@ -18,7 +23,7 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
     if(sign_in($username, $password)) {
         ?>
         <a href="index.php">Home</a>  
-        <a href="logout.php">Log out</a> 
+        <a href="user.php?logout=1">Log out</a> 
                 <?php   
                 show_dentists();
             } else {
@@ -46,7 +51,7 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
                 //User has already signed in
                 ?>
         <a href="index.php">Home</a>  
-        <a href="logout.php">Log out</a>    
+        <a href="user.php?logout=1">Log out</a>  
                 <?php   
                 show_dentists();
             } else {
