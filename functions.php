@@ -99,7 +99,8 @@ function sign_in($username, $password) {
             session_start();
         }
         $_SESSION['loggedin'] = $val[0][0];
-        $_SESSION['contacted_dentists'] = json_decode($val[0][3]);
+        $json = json_decode($val[0][3]);
+        $_SESSION['contacted_dentists'] = is_null($json) ? " " : $json; 
         return true;
     }
 }
