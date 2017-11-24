@@ -167,6 +167,8 @@ function display_search_bar() {
             <label>Specialty</label>
             <datalist id="browser5">
                 <?php
+                error_reporting(E_ALL);
+                ini_set('display_errors', 'On');
                 $specialties = get_specilties();
                 foreach($specialties as $specialty) {
                     echo "<option value='$specialty'>";
