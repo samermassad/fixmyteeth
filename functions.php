@@ -147,6 +147,7 @@ function get_hours_script() {
 }
 
 function display_search_bar() {
+    $specialties = get_specilties();
     ?>
 <div class="tables" id="tables">
         <form action="results.php" method="post">
