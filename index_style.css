@@ -13,51 +13,51 @@ html, body {
         left: 20%;
     top: 7%;
     }
-    
+
 
 .bubble {
-  background: #ffffff;
-  border-radius: 25%;
-  height: 25px;
-  position: absolute;
-  width: 25px;
-  left:627px;
-  top: 261px;
-  animation: slides 1s infinite;
-  -webkit-animation: slides 1s infinite;
+    background: #ffffff;
+    border-radius: 25%;
+    height: 25px;
+    position: absolute;
+    width: 25px;
+    left:627px;
+    top: 261px;
+    animation: slides 1s infinite;
+    -webkit-animation: slides 1s infinite;
 }
-  
-  
+
+
 @keyframes slide {
-  0% {
-    left: 627px;
-    top: 261px;
-  }
-  50% {
-    left: 627px;
-    top: 244px;
-  }
-  100% {
-    left: 627px;
-    top: 261px;
-  }
+    0% {
+        left: 627px;
+        top: 261px;
+    }
+    50% {
+        left: 627px;
+        top: 244px;
+    }
+    100% {
+        left: 627px;
+        top: 261px;
+    }
 }
 
 @-webkit-keyframes slides /* Safari and Chrome - necessary duplicate */
-    {
-  0% {
-    left: 627px;
-    top: 261px;
-  }
-  50% {
-    left: 627px;
-    top: 244px;
-  }
-  100% {
-    left: 627px;
-    top: 261px;
-  }
+{
+    0% {
+        left: 627px;
+        top: 261px;
     }
+    50% {
+        left: 627px;
+        top: 244px;
+    }
+    100% {
+        left: 627px;
+        top: 261px;
+    }
+}
 
 
 .circle {
@@ -353,27 +353,71 @@ label {
 
 
 @media only screen and (max-device-width: 768px) {
-        div#wrapper {
-            width: 400px;
-        }
-
-        div#header {
-            background-image: url(media-queries-phone.jpg);
-            height: 93px;
-            position: relative;
-        }
-
-        div#header h1 {
-            font-size: 140%;
-        }
-
-        #content {
-            float: none;
-            width: 100%;
-        }
-
-        #navigation {
-            float:none;
-            width: auto;
-        }
+    div#wrapper {
+        width: 400px;
     }
+
+    div#header {
+        background-image: url(../Untitled%20Document_fichiers/media-queries-phone.jpg);
+        height: 93px;
+        position: relative;
+    }
+
+    div#header h1 {
+        font-size: 140%;
+    }
+
+    #content {
+        float: none;
+        width: 100%;
+    }
+
+    #navigation {
+        float:none;
+        width: auto;
+    }
+    div.arrow-down {
+        left:310px;
+        top: 85px;
+        display:hidden;
+    }
+    div.circle  {
+        width:50%;
+        left:100px;
+        top: 85px;
+        display:none;
+    }
+    div.circle2  {
+        width:50%;
+        left:100px;
+        top: 85px;
+        display:none;
+    }
+    div.welcome {
+        width:50%;
+        left:100px;
+        top: 0px;
+    }
+    div.welcome1 {
+        width:50%;
+        left:260px;
+        top: 40px;
+    }
+    div.welcome2 {
+        width:50%;
+        left:260px;
+        top: 34px;
+    }
+    div.teeth {
+        width:50%;
+        left:0px;
+        top: 40px;
+    }
+    div.bubble {
+        left:0px;
+        top: 40px;
+        display:none;
+    }
+
+
+}
