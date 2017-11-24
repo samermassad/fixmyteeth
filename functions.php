@@ -2,7 +2,7 @@
 function db_connect() {
     
     $servername = "localhost";
-    $username = "root";
+    $username = "server";
     $password = "fixmyteeth";
     
     try {
@@ -66,14 +66,10 @@ function check_hours($day, $fromto, $hours) {
 }
 
 function get_specilties() {
-    echo "function";
     $conn = db_connect();
-    echo "Connected <br />";
     $result = mysqli_query($conn, "SELECT `specialty` FROM dentists; ");
-    echo "Queried <br />";
     $storeArray = Array();
     while ($row = mysqli_fetch_array($result, true)) {
-        echo "While <br />";
         if(empty(trim($row['specialty'])))   $row['specialty'] = "General Dentist";
         if(!in_array($row['specialty'], $storeArray)) $storeArray[] = $row['specialty'];
     }
@@ -171,7 +167,7 @@ function display_search_bar() {
                 </tr>
                 <tr>
                     <div class="group">
-                         <input name="specialty" type="text"/><span class="highlight"></span><span class="bar"></span>
+                         <input name="specialty" type="text" list="browser5"/><span class="highlight"></span><span class="bar"></span>
                          <label>Speciality</label>
                          <datalist id="browser5">
                              <?php

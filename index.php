@@ -18,8 +18,8 @@ include 'functions.php';
 
             .tables {
                 position: absolute;
-                left: 100px;
-                top: 0px
+                top: 0px;
+                height: 100%;
             }
     </style>
     </head>
