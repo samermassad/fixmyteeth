@@ -151,45 +151,15 @@ function display_search_bar() {
     ?>
 <div class="tables" id="tables">
         <form action="results.php" method="post">
-          <table id="higher">
-                <tr>
-    <th>
-    <div class="group">
-      <input name="address" type="text"/><span class="highlight"></span><span class="bar"></span>
-      <label>Locate Dentist (Address)</label>
-    </div>
-    </th>
-    <th>
-    <div class="group">
-      <input name="city" type="text"/><span class="highlight"></span><span class="bar"></span>
-      <label>Your City</label>
-    </div>
-    </th>
-    <th>
-        <div class="group">
-            <input name="specialty" type="text" list="browser5"/><span class="highlight"></span><span class="bar"></span>
-            <label>Specialty</label>
-            <datalist id="browser5">
-                <?php
-                $specialties = get_specilties();
-                foreach($specialties as $specialty) {
-                    echo "<option value='$specialty'>";
-                }
-                ?>
-            </datalist>
-        </div>
-    </th>
-    <th>
-    <div class="group">
-      <input name="name" type="text"/><span class="highlight"></span><span class="bar"></span>
-      <label>Doctor Name</label>
-    </div>
-    </th>
-    </tr>
-    </table>
+          
     <table id="lower">
 
-
+                <tr>
+                    <div class="group">
+                      <input name="address" type="text"/><span class="highlight"></span><span class="bar"></span>
+                      <label>Locate Dentist (Address)</label>
+                    </div>
+                </tr>
                 <tr>
                     <div class="group">
                         <input name="city" type="text"/><span class="highlight"></span><span class="bar"></span>
