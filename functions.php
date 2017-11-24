@@ -108,6 +108,7 @@ function user_signed_in() {
     if(!isset($_SESSION)) { 
         session_start();
     }
+   var_dump($_SESSION['loggedin']);
     if(isset($_SESSION['loggedin'])) {
         return true;
     } else {
