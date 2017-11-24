@@ -1,6 +1,51 @@
 @charset "utf-8";
 /* CSS Document */
 
+.bubble {
+  background: #ffffff;
+  border-radius: 25%;
+  height: 25px;
+  position: absolute;
+  width: 25px;
+  left:627px;
+  top: 261px;
+  animation: slides 1s infinite;
+  -webkit-animation: slides 1s infinite;
+}
+  
+  
+@keyframes slide {
+  0% {
+    left: 627px;
+    top: 261px;
+  }
+  50% {
+    left: 627px;
+    top: 244px;
+  }
+  100% {
+    left: 627px;
+    top: 261px;
+  }
+}
+
+@-webkit-keyframes slides /* Safari and Chrome - necessary duplicate */
+    {
+  0% {
+    left: 627px;
+    top: 261px;
+  }
+  50% {
+    left: 627px;
+    top: 244px;
+  }
+  100% {
+    left: 627px;
+    top: 261px;
+  }
+    }
+	
+	
 .circle { 
 position:absolute;
 width: 340px; 
@@ -102,44 +147,7 @@ li {
 form {
 	position:absolute;
 }
-<<<<<<< HEAD
-=======
 
-table {
-    /*position:fixed;*/
-    bottom: 14%;
-    max-width: 100%;
-    width: 100%;
-    resize:both;
-
-}
-#lower {
-	max-width: 90%;
-	width: 90%;
-	hieght:80%;
-	bottom: 0%;
-	
-}
-
-#whitespace{
-    z-index:-100
-}
-
-.hours_table {
-    margin: auto;
-    transition: all .2s ease-out;
-    height:0px;
-    overflow: hidden;
-}
-.hours_table table { margin: auto;  }
-#show_hours { cursor: pointer; }
-
-
-
-#whitespace1{
-	z-index:-100
-}
->>>>>>> bd8e5d7873fa9af7313b9739e6f9b5eadeb3e05e
 .input_field { position: relative; width:240px; }
 .input_field input { position: float; border:none; background:#dde2e1; display:block; width: 100%; box-sizing: border-box }
 .input_field img { position: float; top: 2px; right: 5px }
@@ -235,7 +243,7 @@ textarea:focus {
 input:focus ~ label, input:valid ~ label,
 textarea:focus ~ label,
 textarea:valid ~ label {
-  top: -14px;
+  top: -21x;
   font-size: 12px;
   color: #ffffff;
 }
@@ -251,7 +259,7 @@ label {
 	position: absolute;
 	pointer-events: none;
 	left: 6px;
-	top: 12px;
+	top: 19px;
 	-webkit-transition: 300ms ease all;
 	transition: 300ms ease all;
 }
