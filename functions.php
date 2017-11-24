@@ -167,7 +167,7 @@ function display_search_bar() {
                 </tr>
                 <tr>
                     <div class="group">
-                         <input name="specialty" type="text"/><span class="highlight"></span><span class="bar"></span>
+                         <input name="specialty" type="text" list="browser5"/><span class="highlight"></span><span class="bar"></span>
                          <label>Speciality</label>
                          <datalist id="browser5">
                              <?php
