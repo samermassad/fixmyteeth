@@ -8,7 +8,7 @@ function db_connect() {
     mysqli_report(MYSQLI_REPORT_STRICT);
 
     try {
-         $conn = new mysqli($servername, $username, $password, 'fixmyteeth') ;
+        $conn = mysqli_connect($servername, $username, $password, 'fixmyteeth');
     } catch (Exception $e ) {
          echo "Service unavailable";
          echo "message: " . $e->message;   // not in live code obviously...
