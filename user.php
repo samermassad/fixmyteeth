@@ -4,6 +4,7 @@ if(!isset($_SESSION)) {
     session_start();
 }
 var_dump($_SESSION);
+var_dump($_POST);
 if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
     $id = $_GET['save'];
     save_dentist($id);
