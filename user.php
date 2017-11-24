@@ -15,8 +15,7 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
     if(isset($_POST['signin'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if(true) {
-        sign_in($username, $password);
+    if(sign_in($username, $password)) {
         echo "Success";
         ?>
         <a href="index.php">Home</a>  

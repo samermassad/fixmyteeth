@@ -99,7 +99,6 @@ function sign_in($username, $password) {
             session_start();
         }
         $_SESSION['loggedin'] = $val[0][0];
-        var_dump($_SESSION['loggedin']);
         $_SESSION['contacted_dentists'] = json_decode($val[0][3]);
         return true;
     }
