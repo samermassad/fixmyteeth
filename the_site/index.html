@@ -1,12 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel= "stylesheet" type="text/css" href="index_style.css" />
-    <script src="handlers.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous" ></script>
-    <script src="SpryAssets/SpryEffects.js" type="text/javascript"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
 <script type="text/javascript">
@@ -17,68 +12,48 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
 </script>
  <style>
 	.container{position:relative}
-	.copyrignt{position:absolute;top:650px}
-	.tables{position:absolute;top:500px}
+	.tables{position:absolute;left:100px;top:0px}
 	</style>
 </head>
 
 <body>
+<div class="circle"></div>
+<div class="circle2"></div>
+<div class="welcome"><p>Better</p></div>
+<div class="welcome1"><p>4 Search</p></div>
+<div class="welcome2"><p>4 Environment</p></div>
+<div class="arrow-down"></div>
+<div class="teeth"><img src="web_elements/teeth.png" width="100px" height="100px"/></img></div>
 <div class="container" id="container">
-    <div id="content-slider">
-      <div id="slider">  <!-- Slider container -->
-         <div id="mask">  <!-- Mask -->
-         <ul>
-         <li id="first" class="firstanimation">  <!-- ID for tooltip and class for animation -->
-         <img src="web_elements/background.jpg"/>
-         </li>
-         <li id="second" class="secondanimation">
-         <img src="web_elements/background_1.jpg"/>
-         </li>
-         <li id="third" class="thirdanimation">
-         <img src="web_elements/background_2.jpg"/>
-         </li>
-         <li id="fourth" class="fourthanimation">
-         <img src="web_elements/smile.gif"/>
-         </li>
-         </ul>
-         </div>  <!-- End Mask -->
-         <div class="progress-bar"></div>  <!-- Progress Bar -->
-      </div>  <!-- End Slider Container -->
-    </div>
     <div class="tables" id="tables">
         <form action="results.php" method="post">
-          <table id="higher">
-                <tr>
-    <th>
+          <table id="higher" align="">
+    <tr>
     <div class="group">
       <input name="address" type="text"/><span class="highlight"></span><span class="bar"></span>
-      <label>Locate Dentist (Address)</label>
+      <label>Dentist Address</label>
     </div>
-    </th>
-    <th>
+    </tr>
+    
+    <tr>
     <div class="group">
       <input name="city" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Your City</label>
     </div>
-    </th>
-    <th>
+    </tr>
+    <tr>
     <div class="group">
       <input name="specialty" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Speciality</label>
     </div>
-    </th>
-    <th>
+    </tr>
+    <tr>
     <div class="group">
       <input name="name" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Doctor Name</label>
     </div>
-    </th>
     </tr>
-    </table>
-    <table id="lower">
-    
     <tr>
-    <td>
     <div class="group">
      <input name="day" type="text" list="browser1"/><span class="highlight"></span><span class="bar"></span>
      <label>Weekdays</label>
@@ -92,8 +67,8 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
         <option value="Not to specify">
 		</datalist>
     </div>
-    </td>
-    <td>
+    </tr>
+    <tr>
     <div class="group">
      <input from="from" type="text" list="browser0" width= 100px/><span class="highlight"></span><span class="bar"></span>
      <label>Time from</label>
@@ -149,8 +124,8 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
         <option value="Not to specify">
 		</datalist>
     </div>
-    </td>
-    <td>
+    </tr>
+    <tr>
     <div class="group">
      <input from="from" type="text" list="browser0" width= 100px/><span class="highlight"></span><span class="bar"></span>
      <label>Time to</label>
@@ -206,8 +181,8 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
         <option value="Not to specify">
 		</datalist>
     </div>
-    </td>
-    <td>
+    </tr>
+    <tr>
     <div class="group">
      <input name="gender" type="text" list="browser2"/><span class="highlight"></span><span class="bar"></span>
      <label>Gender</label>
@@ -217,8 +192,8 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
   		<option value="Not to specify">
 		</datalist>
     </div>
-    </td>
-    <td>
+    </tr>
+    <tr>
     <div class="group">
      <input name="photo" type="text" list="browser3"/><span class="highlight"></span><span class="bar"></span>
      <label>Photo(Yes/No?)</label>
@@ -228,17 +203,14 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
   		<option value="Not to specify">
 		</datalist>
     </div>
-    </td>
     </tr>
     </table>
     </form>
   </div>
-    <div class="copyrignt" id="copyright">
-	<img src="web_elements/footbanner.jpg"/>
-    </div>
+
 	</div>
-    <div id="search">
-    <input type="submit" style="background:url(web_elements/search_button.png);height:100px;width:100px">
+    <div class="teeth">
+    <input type="submit" style="font-size:0.01em; height:100px;width:100px;border: none;">
     </input>
     </div>
 

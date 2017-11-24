@@ -1,34 +1,87 @@
 @charset "utf-8";
 /* CSS Document */
 
-#search {
-	position: fixed;
-	margin-top:70%;
-	margin-left:87%;
-	bottom: 4%;
+.circle {
+position:absolute;
+width: 340px;
+height: 340px;
+  left:470px;
+  top: 100px;
+background: #b8d6d0;
+-moz-border-radius: 700px;
+-webkit-border-radius: 700px;
+border-radius: 700px;
+}
+
+.circle2 {
+position:absolute;
+width: 327px;
+height: 327px;
+  left:476px;
+  top: 106px;
+background: #7dbdb0;
+-moz-border-radius: 700px;
+-webkit-border-radius: 700px;
+border-radius: 700px;
+}
+
+.welcome {
+position:absolute;
+color: white;
+font-size:36px;
+letter-spacing: 10px;
+  left:569px;
+  top: 138px;
+}
+
+
+.welcome1 {
+position:absolute;
+color: white;
+font-size:14px;
+letter-spacing: 13px;
+  left:569px;
+  top: 146px;
+}
+
+.welcome2 {
+position:absolute;
+color: white;
+font-size:11px;
+letter-spacing: 6.4px;
+  left:569px;
+  top: 206px;
+}
+
+.teeth {
+position:absolute;
+  left:589px;
+  top: 284px;
+}
+
+.arrow-down {
+  position:relative;
+  width: 0;
+  height: 0;
+  left:200px;
+  top: 85px;
+  border-left: 70px solid transparent;
+  border-right: 70px solid transparent;
+  border-top: 70px solid #b8d6d0;
 
 }
 
-video#bgvid {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -100;
-    -ms-transform: translateX(-50%) translateY(-50%);
-    -moz-transform: translateX(-50%) translateY(-50%);
-    -webkit-transform: translateX(-50%) translateY(-50%);
-    transform: translateX(-50%) translateY(-50%);
+form {
+    width: 1400px;
+    border: 25px solid #b8d6d0;
+    padding: 25px;
+    margin: 25px;
+	background: #7dbdb0;
 }
-
-
 
 img {
 	resize: both;
-        overflow: auto;
+    overflow: auto;
 	max-width:100%;
 }
 
@@ -51,6 +104,7 @@ form {
 }
 
 table {
+    /*position:fixed;*/
     bottom: 14%;
     max-width: 100%;
     width: 100%;
@@ -84,7 +138,7 @@ table {
 	z-index:-100
 }
 .input_field { position: relative; width:240px; }
-.input_field input { position: float; border:none; background:#fff; display:block; width: 100%; box-sizing: border-box }
+.input_field input { position: float; border:none; background:#dde2e1; display:block; width: 100%; box-sizing: border-box }
 .input_field img { position: float; top: 2px; right: 5px }
 
 /*                container dimension                    */
@@ -92,131 +146,10 @@ table {
 	max-width: 100%; 
 	position:fixed;
         width: 100%;
-        height: 100%;
+        height: 98%;
 }
-
-#background_00 {
-	max-width:100%;
-	position:fixed;
-	width: 100%;
-}
-
 
 /********************************/
-
-
-
-#content-slider {
-	max-width:100%;	
-position:fixed;
-	width: 100%;
-	z-index: -1;
-
-
-}
-
-#slider {
-   background: none;
-   border: 5px solid #eaeaea;
-   height: auto;
-   width: 100%;
-   max-width:100%;
-   position:relative;
-   overflow: visible;
-}
-
-
-#mask {
-   overflow: hidden;
-   height: 764px;
-}
-
-
-#slider ul {
-   margin: 0;
-   padding: 0;
-   position: relative;
-}
-
-#slider li {
-   width: 2016px;  /* Width Image */
-   height: 764px; /* Height Image */
-   position: absolute;
-   top: -325px; /* Original Position - Outside of the Slider */
-   list-style: none;
-}
-
-
-#slider li.firstanimation {
-   animation: cycle 15s linear infinite;
-}
-
-#slider li.secondanimation {
-   animation: cycletwo 15s linear infinite;
-}
-
-#slider li.thirdanimation {
-   animation: cyclethree 15s linear infinite;
-}
-
-#slider li.fourthanimation {
-   animation: cyclefour 15s linear infinite;
-}
-
-/* ANIMATION */
-
-@keyframes cycle {
-   0%  { top: 0px; opacity:0} /* When you start the slide, the first image is already visible */
-   4%  { top: 0px; opacity:1} /* Original Position */
-   20% { top: 0px; opacity:1; z-index:0; } /* From 4% to 16 % = for 3 seconds the image is visible */
-   26% { top: 325px; opacity: 0; z-index: 0; } /* From 16% to 20% = for 1 second exit image */
-   31% { top: -325px; opacity: 0; z-index: -1; } /* Return to Original Position */
-   92% { top: -325px; opacity: 0; z-index: 0; }
-   96% { top: -325px; opacity: 0; } /* From 96% to 100% = for 1 second enter image*/
-   100%{ top: 0px; opacity: 0; }
-}
-
-@keyframes cycletwo {
-   0%  { top: -325px; opacity: 0; } /* Original Position */
-   20% { top: -325px; opacity: 0; }/* Starts moving after 16% to this position */
-   26% { top: 0px; opacity: 1; }
-   26% { top: 0px; opacity: 1; }  /* From 20% to 24% = for 1 second enter image*/
-   46% { top: 0px; opacity: 1; z-index: 0; }   /* From 24% to 36 % = for 3 seconds the image is visible */
-   52% { top: 325px; opacity: 0; z-index: 0; } /* From 36% to 40% = for 1 second exit image */
-   52% { top: -325px; opacity: 0; z-index: -1; }   /* Return to Original Position */
-   100%{ top: -325px; opacity: 0; z-index: -1; }
-}
-
-@keyframes cyclethree {
-   0%  { top: -325px; opacity: 0; }
-   40% { top: -325px; opacity: 0; }
-   44% { top: 0px; opacity: 1; }
-   48% { top: 0px; opacity: 1; }
-   60% { top: 0px; opacity: 1; }
-   64% { top: 325px; opacity: 0; z-index: 0; }
-   65% { top: -325px; opacity: 0; z-index: -1; }
-   100%{ top: -325px; opacity: 0; z-index: -1; }
-}
-
-@keyframes cyclefour {
-   0%  { top: -325px; opacity: 0; }
-   0% { top: -325px; opacity: 0; }
-   36% { top: 0px; opacity: 0; }
-   40% { top: 0px; opacity: 0; }
-   58% { top: 0px; opacity: 0; }
-   72% { top: -325px; opacity: 0; z-index: 0; }
-   76% { top: 0px; opacity: 1; z-index: -1; }
-   100%{ top: 0px; opacity: 1; z-index: -1; }
-}
-
-
-
-
-
-
-
-/********************************/
-
 
 *,
 :before,
@@ -225,8 +158,24 @@ position:fixed;
 }
 
 body {
-  background: white;
+  animation: colorchange 20s infinite;
+  -webkit-animation: colorchange 20s infinite;
 }
+
+    @keyframes colorchange
+    {
+      0%   {background: #6cb8a9;}
+      50%  {background: #82bdb7;}
+      100% {background: #6cb8a9;}
+    }
+
+
+    @-webkit-keyframes colorchange /* Safari and Chrome - necessary duplicate */
+    {
+      0%   {background: #6cb8a9;}
+      50%  {background: #82bdb7;}
+      100% {background: #6cb8a9;}
+    }
 
 form {
   width: 200px;
@@ -236,15 +185,15 @@ form h1 {
   font-size: 3em;
   font-weight: 300;
   text-align: center;
-  color: #168ca1;
+  color: #000000;
 }
 form h5 {
   text-align: center;
   text-transform: uppercase;
-  color: #c6c6c6;
+  color: #000000;
 }
 form hr.sep {
-  background: #168ca1;
+  background: #000000;
   box-shadow: none;
   border: none;
   height: 2px;
@@ -267,7 +216,7 @@ textarea {
 input,
 textarea {
 	background: none;
-	color: #168ca1;
+	color: #000000;
 	font-size: 18px;
 	padding: 10px 5px 5px 5px;
 	display: block;
@@ -285,19 +234,12 @@ textarea:focus ~ label,
 textarea:valid ~ label {
   top: -14px;
   font-size: 12px;
-  color: #168ca1;
+  color: #ffffff;
 }
 input:focus ~ .bar:before,
 textarea:focus ~ .bar:before {
   width: 200px;
 }
-
-input:focus ~ .bar0:before,
-textarea:focus ~ .bar0:before {
-  width: 100px;
-}
-
-
 
 label {
 	color: #168ca1;
@@ -317,38 +259,20 @@ label {
   width: 200px;
 }
 
-.bar0 {
-  position: relative;
-  display: block;
-  width: 100px;
-}
-
 .bar:before {
   content: '';
   height: 2px;
   width: 0;
   bottom: 0px;
   position: absolute;
-  background: #168ca1;
-  -webkit-transition: 300ms ease all;
-  transition: 300ms ease all;
-  left: 0%;
-}
-
-.bar0:before {
-  content: '';
-  height: 2px;
-  width: 0;
-  bottom: 0px;
-  position: absolute;
-  background: #168ca1;
+  background: #dde2e1;
   -webkit-transition: 300ms ease all;
   transition: 300ms ease all;
   left: 0%;
 }
 
 .btn {
-  background: #fff;
+  background: #dde2e1;
   color: #ffffff;
   border: none;
   padding: 7px 10px;
@@ -360,38 +284,6 @@ label {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-}
-.btn:hover {
-  color: #ffffff;
-  box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
-}
-.btn.btn-link {
-  background: #168ca1;
-  color: #168ca1;
-}
-.btn.btn-link:hover {
-  background: #168ca1;
-  color: #168ca1;
-}
-.btn.btn-submit {
-  background: #168ca16;
-  color: #168ca1;
-}
-.btn.btn-submit:hover {
-  background: #168ca1;
-  color: #168ca1;
-}
-.btn.btn-cancel {
-  background: #eee;
-}
-.btn.btn-cancel:hover {
-  background: #e1e1e1;
-  color: #ffffff;
-}
-
-.btn-box {
-  text-align: center;
-  margin: 10px 0;
 }
 
 
@@ -424,12 +316,3 @@ label {
             width: auto;
         }
     }
-
-.copyrignt {
-
-	position:fixed;
-	width:100%;
-	margin-top:70%;
-	z-index:999;
-
-}
