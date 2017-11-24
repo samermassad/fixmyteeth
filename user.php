@@ -3,43 +3,58 @@ include('functions.php');
 if(!isset($_SESSION)) { 
     session_start();
 }
-if(isset($_POST['signin'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-    if(sign_in($username, $password)) {
-        $_SESSION['loggedin'] = true;
-    } else {
-        $msg = "ERROR! Wrong username or password.";
-        show_sign_in($msg);
-    }
-} else if (isset($_POST['signup'])){
-    //Sign Up
-    $username = $_POST['username'];
-    $password1 = $_POST['password1'];
-    $password2 = $_POST['password2'];
-    if(strcmp($password1,$password2) == 0) {
-        if (create_account($username,$password1)) {
-            $msg = "Account created sucessfully! Please sign in.";
-            show_sign_in($msg);
-        }
-    } else {
-        $msg = "ERROR! Passwords must be identical.";
-        show_sign_in($msg);
-    }
-    
-} else {
-    
-    if(user_signed_in()) {
-        //User has already signed in
-        ?>
+if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
+    $id = $_GET['save'];
+    save_dentist($id);
+    ?>
 <a href="logout.php">Log out</a>    
         <?php   
         show_dentists();
-    } else {
-        //show Sign in // Sign up page
-        show_sign_in();
-    }
+} else {
+    if(isset($_POST['signin'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    if(sign_in($username, $password)) {
+        ?>
+        <a href="index.php">Home</a>  
+        <a href="logout.php">Log out</a> 
+                <?php   
+                show_dentists();
+            } else {
+                $msg = "ERROR! Wrong username or password.";
+                show_sign_in($msg);
+            }
+        } else if (isset($_POST['signup'])){
+            //Sign Up
+            $username = $_POST['username'];
+            $password1 = $_POST['password1'];
+            $password2 = $_POST['password2'];
+            if(strcmp($password1,$password2) == 0) {
+                if (create_account($username,$password1)) {
+                    $msg = "Account created sucessfully! Please sign in.";
+                    show_sign_in($msg);
+                }
+            } else {
+                $msg = "ERROR! Passwords must be identical.";
+                show_sign_in($msg);
+            }
+
+        } else {
+
+            if(user_signed_in()) {
+                //User has already signed in
+                ?>
+        <a href="index.php">Home</a>  
+        <a href="logout.php">Log out</a>    
+                <?php   
+                show_dentists();
+            } else {
+                //show Sign in // Sign up page
+                show_sign_in();
+            }
+        }
 }
+
 
 function show_sign_in($msg = '') {
 ?>
@@ -108,6 +123,8 @@ function show_dentists() { ?>
         <title>Contacted Dentists - Fix My Teeth</title>
         <link rel= "stylesheet" type="text/css" href="results_style.css" />
         <link rel= "stylesheet" type="text/css" href="index_style.css" />
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous" ></script>
     </head>
     <body>
         <!-- Contacted Dentists DIV -->

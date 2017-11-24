@@ -79,7 +79,7 @@ function get_specilties() {
 
 function create_account($username,$password) {
     $conn = db_connect();
-    $query = "INSERT INTO `users` ( username, password , contacted_dentists ) VALUES  ( '$username', '$password' , '[1,2]' );";
+    $query = "INSERT INTO `users` ( username, password , contacted_dentists ) VALUES  ( '$username', '$password' , '' );";
     $retval = mysqli_query( $conn, $query );
          
     if(! $retval ) {
@@ -98,6 +98,7 @@ function sign_in($username, $password) {
         if(!isset($_SESSION)) { 
             session_start();
         }
+        $_SESSION['loggedin'] = $val[0][0];
         $_SESSION['contacted_dentists'] = json_decode($val[0][3]);
         return true;
     }
@@ -107,7 +108,7 @@ function user_signed_in() {
     if(!isset($_SESSION)) { 
         session_start();
     }
-    if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
+    if(isset($_SESSION['loggedin'])) {
         return true;
     } else {
         return false;
@@ -124,6 +125,23 @@ function get_dentists($ids) {
     } else {
         return $val;
     }
+}
+
+function save_dentist($id) {
+    $conn = db_connect();
+    $query = "select * from users WHERE `id` = " . $_SESSION['loggedin'];
+    $retval = mysqli_query( $conn, $query );
+    $val = mysqli_fetch_all($retval);
+    $dentists = json_decode($val[0][3]);
+    if(!in_array($id, $dentists)) {
+        $dentists[] = $id;
+        $query = "update users set contacted_dentists = '".json_encode($dentists)."' WHERE `id` = " . $_SESSION['loggedin'];
+        if (mysqli_query($conn, $query)) {
+            $_SESSION['contacted_dentists'][] = $id;
+            return true;
+        }
+    }
+    return false;
 }
 
 function get_hours_script() {
@@ -150,7 +168,7 @@ function get_hours_script() {
 function display_search_bar() {
     ?>
 <div class="tables" id="tables">
-        <form action="results.php" method="post">
+        <form id="search_form" action="results.php" method="post">
           
     <table id="lower">
 
@@ -293,11 +311,15 @@ function display_search_bar() {
                  </div>
              </tr>
          </table>
+            <div class="bubble"></div>
          <div class="teeth">
-             <input name="submit" type="submit" style="font-size:0.01em; height:100px;width:100px;border: none;" value="Search!">
+             <input type="image" name="submit" src="web_elements/teeth.png" border="0" alt="Submit" />
+             <!--<input name="submit" type="submit" style="font-size:0.01em; height:100px;width:100px;border: none;" value="Search!">-->
              </input>
          </div>
+            
     </form>
   </div>
+
 <?php
 }

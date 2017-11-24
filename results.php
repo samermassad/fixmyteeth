@@ -14,8 +14,7 @@ include "functions.php";
 </head>
 <body>
     <?php
-        if(isset($_POST['submit'])) {
-        display_search_bar();
+        //if(isset($_POST['submit'])) {
     ?>
 
     <div id="results-grid">
@@ -45,6 +44,7 @@ include "functions.php";
 				<th>Image</th>
 				<th>Hours</th>
 				<th>Specialty</th>
+                                <th>Save</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -82,6 +82,7 @@ include "functions.php";
 					
 				</th>
 				<th><?php echo empty(trim($value[10])) ? "General Dentist" : $value[10]; ?></th>
+                                <th><a href="user.php?save=<?php echo $value[0]; ?>">Save Dentist</a></th>
 			</tr>
 			<?php
 			}
@@ -90,9 +91,9 @@ include "functions.php";
 		</table>
         <?php
         get_hours_script();
-            } else {
-                header("location:index.php");
-            }
+    //            } else {
+    //                header("location:index.php");
+    //            }
         ?>
     </div>
 </body>
