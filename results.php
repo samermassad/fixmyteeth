@@ -5,7 +5,7 @@ include "functions.php";
 <html lang="en">
 <head>
     <link rel= "stylesheet" type="text/css" href="index_style.css" />
-	<link rel= "stylesheet" type="text/css" href="results_style.css" />
+    <link rel= "stylesheet" type="text/css" href="results_style.css" />
     <script src="handlers.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous" ></script>
@@ -28,19 +28,11 @@ include "functions.php";
                 $fromto = [$_POST['from'], $_POST['to']];
                 $photo = isset($_POST['photo']) ? $_POST['photo'] : "";
                 $gender = $_POST['gender'];
-//                $address = "";
-//                $city = "";
-//                $specialty = "none";
-//                $name = "lis";
-//                $day = "any";
-//                $fromto = ["", ""];
-//                $photo = isset($_POST['photo']) ? $_POST['photo'] : "";
-//                $gender = "";
                 
                 $results = search($address, $city, $specialty, $name, $day, $fromto, $photo, $gender);
                 ?>
         
-		<table id="results_table">
+		<table class="results">
 			<thead>
 			<tr>
 				<th>First Name</th>
@@ -57,18 +49,18 @@ include "functions.php";
 			</thead>
 			<tbody>
 			<?php 
-			foreach($results as $key => $value) {
+			foreach($results as $value) {
 				?>
 			<tr>
-				<td><?php echo $value[1]; ?></td>
-				<td><?php echo $value[2]; ?></td>
-				<td><?php echo $value[3]; ?></td>
-				<td><?php echo $value[4]; ?></td>
-				<td><a target="_blank" href="https://www.google.fr/maps/search/<?php echo urlencode($value[5]); ?>"><?php echo $value[5]; ?></a></th>
-				<td><?php echo $value[6]; ?></td>
-				<td><?php echo $value[7]; ?></td>
-				<td><img src="<?php echo $value[8]; ?>" /></td>
-				<td>
+				<th><?php echo $value[1]; ?></th>
+				<th><?php echo $value[2]; ?></th>
+				<th><?php echo $value[3]; ?></th>
+				<th><?php echo $value[4]; ?></th>
+				<th><a target="_blank" href="https://www.google.fr/maps/search/<?php echo urlencode($value[5]); ?>"><?php echo $value[5]; ?></a></th>
+				<th><?php echo $value[6]; ?></th>
+				<th><?php echo $value[7]; ?></th>
+				<th><img src="<?php echo $value[8]; ?>" /></th>
+				<th>
 					<?php if(is_null($value[9])) {
 							 echo "Unknown Opening Hours";
 						 } else { ?>
@@ -88,32 +80,16 @@ include "functions.php";
 						 }
 						 ?>   
 					
-				</td>
-				<td><?php echo empty(trim($value[10])) ? "General Dentist" : $value[10]; ?></td>
+				</th>
+				<th><?php echo empty(trim($value[10])) ? "General Dentist" : $value[10]; ?></th>
 			</tr>
 			<?php
 			}
 			?>
 			</tbody>
 		</table>
-		
-        <script>
-            function display_hours($row) {
-                $($row).next().animate({
-                    height: $($row).next().get(0).scrollHeight
-                }, 250, function(){
-                    $(this).height('auto');
-                });
-                $($row).attr('onclick','hide_hours(this)');
-                $($row).html('Hide Hours');
-            }
-            function hide_hours($row) {
-                $($row).next().animate({height:'0'});
-                $($row).attr('onclick','display_hours(this)');
-                $($row).html('Display Hours');
-            }
-        </script>
         <?php
+        get_hours_script();
             } else {
                 header("location:index.php");
             }

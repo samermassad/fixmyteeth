@@ -1,15 +1,30 @@
 @charset "utf-8";
-@font-face {
-         font-family: 'ChunkFiveRegular';
-         src: url('Chunkfive-webfont.eot');
-         src: url('Chunkfive-webfont.eot?#iefix') format('embedded-opentype'),
-         url('Chunkfive-webfont.woff') format('woff'),
-         url('Chunkfive-webfont.ttf') format('truetype'),
-         url('Chunkfive-webfont.svg#ChunkFiveRegular') format('svg');
-         font-weight: normal;
-         font-style: normal;
-}
 /* CSS Document */
+
+#search {
+	position: fixed;
+	margin-top:70%;
+	margin-left:87%;
+	bottom: 4%;
+
+}
+
+video#bgvid {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+}
+
+
 
 img {
 	resize: both;
@@ -30,34 +45,29 @@ li {
 	width: 100%;
 	
 }
+
+form {
+	position:absolute;
+}
+
 table {
-    /*position:fixed;*/
     bottom: 14%;
     max-width: 100%;
     width: 100%;
     resize:both;
 
 }
+#lower {
+	max-width: 90%;
+	width: 90%;
+	hieght:80%;
+	bottom: 0%;
+
+}
+
 #whitespace{
     z-index:-100
 }
-/*#search_table {
-	position:absolute;
-        bottom: 0px;
-	max-width: 100%;
-	width: 100%;
-	resize:both;
-	
-}
-
-#results_table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-#results_table th, #results_table td { border-bottom: 1px solid #ddd; }
-
-#results_table tbody tr:hover {background-color:#f5f5f5;}*/
 
 .hours_table {
     margin: auto;
@@ -98,21 +108,17 @@ table {
 
 #content-slider {
 	max-width:100%;	
-    position:relative;
+position:fixed;
 	width: 100%;
 	z-index: -1;
-    height: 70%;
-}
 
-.tables {
-    height: 30%;
-    /*top: 315px;*/
+
 }
 
 #slider {
    background: none;
    border: 5px solid #eaeaea;
-   height: 100%;
+   height: auto;
    width: 100%;
    max-width:100%;
    position:relative;
@@ -133,10 +139,10 @@ table {
 }
 
 #slider li {
-   width: 100%;  /* Width Image */
-   height: 100%; /* Height Image */
+   width: 2016px;  /* Width Image */
+   height: 764px; /* Height Image */
    position: absolute;
-   /*top: -325px; /!* Original Position - Outside of the Slider *!/*/
+   top: -325px; /* Original Position - Outside of the Slider */
    list-style: none;
 }
 
@@ -160,14 +166,14 @@ table {
 /* ANIMATION */
 
 @keyframes cycle {
-   0%  { top: 0px; } /* When you start the slide, the first image is already visible */
-   0%  { top: 0px; } /* Original Position */
+   0%  { top: 0px; opacity:0} /* When you start the slide, the first image is already visible */
+   4%  { top: 0px; opacity:1} /* Original Position */
    20% { top: 0px; opacity:1; z-index:0; } /* From 4% to 16 % = for 3 seconds the image is visible */
    26% { top: 325px; opacity: 0; z-index: 0; } /* From 16% to 20% = for 1 second exit image */
    31% { top: -325px; opacity: 0; z-index: -1; } /* Return to Original Position */
    92% { top: -325px; opacity: 0; z-index: 0; }
    96% { top: -325px; opacity: 0; } /* From 96% to 100% = for 1 second enter image*/
-   100%{ top: 0px; opacity: 1; }
+   100%{ top: 0px; opacity: 0; }
 }
 
 @keyframes cycletwo {
@@ -223,13 +229,14 @@ body {
 }
 
 form {
+  width: 200px;
   margin: 15px auto;
 }
 form h1 {
   font-size: 3em;
   font-weight: 300;
   text-align: center;
-  color: #2196F3;
+  color: #168ca1;
 }
 form h5 {
   text-align: center;
@@ -237,7 +244,7 @@ form h5 {
   color: #c6c6c6;
 }
 form hr.sep {
-  background: #2196F3;
+  background: #168ca1;
   box-shadow: none;
   border: none;
   height: 2px;
@@ -259,15 +266,15 @@ textarea {
 
 input,
 textarea {
-  background: none;
-  color: #252d2d;
-  font-size: 18px;
-  padding: 10px 5px 5px 5px;
-  display: block;
-  width: 200px;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #ffffff;
+	background: none;
+	color: #168ca1;
+	font-size: 18px;
+	padding: 10px 5px 5px 5px;
+	display: block;
+	width: 160px;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #ffffff;
 }
 input:focus,
 textarea:focus {
@@ -278,24 +285,30 @@ textarea:focus ~ label,
 textarea:valid ~ label {
   top: -14px;
   font-size: 12px;
-  color: #b0e7e6;
+  color: #168ca1;
 }
 input:focus ~ .bar:before,
 textarea:focus ~ .bar:before {
   width: 200px;
 }
 
+input:focus ~ .bar0:before,
+textarea:focus ~ .bar0:before {
+  width: 100px;
+}
+
+
 
 label {
-  color: #c6c6c6;
-  font-size: 16px;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  left: 5px;
-  top: 10px;
-  -webkit-transition: 300ms ease all;
-  transition: 300ms ease all;
+	color: #168ca1;
+	font-size: 16px;
+	font-weight: normal;
+	position: absolute;
+	pointer-events: none;
+	left: 6px;
+	top: 12px;
+	-webkit-transition: 300ms ease all;
+	transition: 300ms ease all;
 }
 
 .bar {
@@ -303,13 +316,32 @@ label {
   display: block;
   width: 200px;
 }
+
+.bar0 {
+  position: relative;
+  display: block;
+  width: 100px;
+}
+
 .bar:before {
   content: '';
   height: 2px;
   width: 0;
   bottom: 0px;
   position: absolute;
-  background: #b0e7e6;
+  background: #168ca1;
+  -webkit-transition: 300ms ease all;
+  transition: 300ms ease all;
+  left: 0%;
+}
+
+.bar0:before {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 0px;
+  position: absolute;
+  background: #168ca1;
   -webkit-transition: 300ms ease all;
   transition: 300ms ease all;
   left: 0%;
@@ -334,20 +366,20 @@ label {
   box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
 }
 .btn.btn-link {
-  background: #b0e7e6;
-  color: #d3f6fd;
+  background: #168ca1;
+  color: #168ca1;
 }
 .btn.btn-link:hover {
-  background: #0d8aee;
-  color: #def8fd;
+  background: #168ca1;
+  color: #168ca1;
 }
 .btn.btn-submit {
-  background: #b0e7e6;
-  color: #bcf3fb;
+  background: #168ca16;
+  color: #168ca1;
 }
 .btn.btn-submit:hover {
-  background: #0d8aee;
-  color: #deeffd;
+  background: #168ca1;
+  color: #168ca1;
 }
 .btn.btn-cancel {
   background: #eee;
@@ -392,4 +424,12 @@ label {
             width: auto;
         }
     }
-	
+
+.copyrignt {
+
+	position:fixed;
+	width:100%;
+	margin-top:70%;
+	z-index:999;
+
+}

@@ -1,59 +1,93 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel= "stylesheet" type="text/css" href="index_style.css" />
+    <script src="handlers.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous" ></script>
+    <script src="SpryAssets/SpryEffects.js" type="text/javascript"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Untitled Document</title>
-<script type="text/javascript">
+
+ <style>
+	.container{position:relative}
+	.copyrignt{position:absolute;top:650px}
+	.tables{position:absolute;top:500px}
+	</style>
+ <script type="text/javascript">
 function MM_effectSlide(targetElement, duration, from, to, toggle)
 {
 	Spry.Effect.DoSlide(targetElement, {duration: duration, from: from, to: to, toggle: toggle});
 }
-</script>
- <style>
-	.container{position:relative}
-	.tables{position:absolute;left:100px;top:0px}
-	</style>
+ </script>
 </head>
 
 <body>
-<div class="circle"></div>
-<div class="circle2"></div>
-<div class="welcome"><p>Better</p></div>
-<div class="welcome1"><p>4 Search</p></div>
-<div class="welcome2"><p>4 Environment</p></div>
-<div class="arrow-down"></div>
-<div class="teeth"><img src="web_elements/teeth.png" width="100px" height="100px"/></img></div>
 <div class="container" id="container">
-    <div class="tables" id="tables">
-        <form action="results.php" method="post">
-          <table id="higher" align="">
+        <div id="content-slider">
+      <div id="slider">  <!-- Slider container -->
+         <div id="mask">  <!-- Mask -->
+         <ul>
+         <li id="first" class="firstanimation">  <!-- ID for tooltip and class for animation -->
+         <img src="web_elements/background.jpg" alt="Cougar"/>
+         </li>
+         <li id="second" class="secondanimation">
+         <img src="web_elements/background_1.jpg" alt="Lions"/>
+         </li>
+         <li id="third" class="thirdanimation">
+         <img src="web_elements/background_2.jpg" alt="Snowalker"/>
+         </li>
+         <li id="third" class="fourthanimation">
+         <img src="web_elements/background_00.jpg" alt="Msg"/>
+         </li>
+         </ul>
+         </div>  <!-- End Mask -->
+         <div class="progress-bar"></div>  <!-- Progress Bar -->
+      </div>  <!-- End Slider Container -->
+    </div>
+  <div class="tables" id="tables">
+  <form action="results.php" method="post">
+    <table>
     <tr>
+    <th>
+    <div id="whitespace1"><img src="web_elements/space_ss.png" /></div>
+    </th>
+    <th>
     <div class="group">
       <input name="address" type="text"/><span class="highlight"></span><span class="bar"></span>
-      <label>Dentist Address</label>
+      <label>Locate Dentist (Address)</label>
     </div>
-    </tr>
-    
-    <tr>
+    </th>
+    <th>
     <div class="group">
       <input name="city" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Your City</label>
     </div>
-    </tr>
-    <tr>
+    </th>
+    <th>
     <div class="group">
       <input name="specialty" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Speciality</label>
     </div>
-    </tr>
-    <tr>
+    </th>
+    <th>
     <div class="group">
       <input name="name" type="text"/><span class="highlight"></span><span class="bar"></span>
       <label>Doctor Name</label>
     </div>
+    </th>
+    <th>
+    <div class="group">
+      <input name="submit" value="Search" type="submit"/>
+    </div>
+    </th> 
     </tr>
-    <tr>
+    <tr class="advanced_search">
+    <td>
+    <div id="whitespace"><img src="web_elements/space_ss.png" /></div>
+    </td>
+    <td>
     <div class="group">
      <input name="day" type="text" list="browser1"/><span class="highlight"></span><span class="bar"></span>
      <label>Weekdays</label>
@@ -67,11 +101,11 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
         <option value="Not to specify">
 		</datalist>
     </div>
-    </tr>
-    <tr>
+    </td>
+    <td>
     <div class="group">
-     <input from="from" type="text" list="browser0" width= 100px/><span class="highlight"></span><span class="bar"></span>
-     <label>Time from</label>
+     <input from="from" type="text" list="browser0"/><span class="highlight"></span><span class="bar"></span>
+     <label>From(24h format)</label>
         <datalist id="browser0">
  		<option value="00:00">
   		<option value="00:30">
@@ -124,11 +158,11 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
         <option value="Not to specify">
 		</datalist>
     </div>
-    </tr>
-    <tr>
-    <div class="group">
-     <input from="from" type="text" list="browser0" width= 100px/><span class="highlight"></span><span class="bar"></span>
-     <label>Time to</label>
+    </td>
+    <td>
+        <div class="group">
+     <input from="to" type="text" list="browser0"/><span class="highlight"></span><span class="bar"></span>
+     <label>To(24h format)</label>
         <datalist id="browser0">
  		<option value="00:00">
   		<option value="00:30">
@@ -181,8 +215,8 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
         <option value="Not to specify">
 		</datalist>
     </div>
-    </tr>
-    <tr>
+    </td>
+    <td>
     <div class="group">
      <input name="gender" type="text" list="browser2"/><span class="highlight"></span><span class="bar"></span>
      <label>Gender</label>
@@ -192,8 +226,8 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
   		<option value="Not to specify">
 		</datalist>
     </div>
-    </tr>
-    <tr>
+    </td>
+    <td>
     <div class="group">
      <input name="photo" type="text" list="browser3"/><span class="highlight"></span><span class="bar"></span>
      <label>Photo(Yes/No?)</label>
@@ -203,16 +237,32 @@ function MM_effectSlide(targetElement, duration, from, to, toggle)
   		<option value="Not to specify">
 		</datalist>
     </div>
+    </td>
     </tr>
     </table>
     </form>
   </div>
-
-	</div>
-    <div class="teeth">
-    <input type="submit" style="font-size:0.01em; height:100px;width:100px;border: none;">
-    </input>
+    <div class="copyrignt" id="copyright">
+	<img src="web_elements/footbanner.jpg"/>
     </div>
-
+	</div>
+<style>
+		.more_button {
+				position: absolute;
+				left: 2%;
+				bottom:10%;
+			}
+			.advanced_search td {
+				opacity: 0;
+				transition: all 1s ease-out;
+			}
+	</style>
+<span class="more_button" onclick="advanced_search();">Advanced Search</span>
+<script>
+function advanced_search() {
+	if($(".advanced_search td").css('opacity') == 0) $(".advanced_search td").css('opacity',1);
+		else $(".advanced_search td").css('opacity',0);
+	}
+</script>
 </body>
 </html>

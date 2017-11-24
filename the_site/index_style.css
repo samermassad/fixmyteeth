@@ -88,6 +88,8 @@ img {
 div {
 	max-width: 100%;
 	width: 100%;
+    position: relative;
+    display: block;
 
 }
 
@@ -100,6 +102,44 @@ li {
 form {
 	position:absolute;
 }
+<<<<<<< HEAD
+=======
+
+table {
+    /*position:fixed;*/
+    bottom: 14%;
+    max-width: 100%;
+    width: 100%;
+    resize:both;
+
+}
+#lower {
+	max-width: 90%;
+	width: 90%;
+	hieght:80%;
+	bottom: 0%;
+	
+}
+
+#whitespace{
+    z-index:-100
+}
+
+.hours_table {
+    margin: auto;
+    transition: all .2s ease-out;
+    height:0px;
+    overflow: hidden;
+}
+.hours_table table { margin: auto;  }
+#show_hours { cursor: pointer; }
+
+
+
+#whitespace1{
+	z-index:-100
+}
+>>>>>>> bd8e5d7873fa9af7313b9739e6f9b5eadeb3e05e
 .input_field { position: relative; width:240px; }
 .input_field input { position: float; border:none; background:#dde2e1; display:block; width: 100%; box-sizing: border-box }
 .input_field img { position: float; top: 2px; right: 5px }
@@ -248,7 +288,6 @@ label {
   -webkit-transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-
 
 
 
