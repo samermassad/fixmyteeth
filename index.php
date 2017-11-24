@@ -10,7 +10,6 @@ include 'functions.php';
     <body>
         <div class="container" id="container">
             <?php
-                var_dump(function_exists('mysqli_connect'));
                 display_search_bar();
             ?>
         </div>
