@@ -48,8 +48,9 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
             }
 
         } else {
-echo 4;
+
             if(user_signed_in()) {
+                echo 4;
                 //User has already signed in
                 ?>
         <a href="index.php">Home</a>  
@@ -57,6 +58,7 @@ echo 4;
                 <?php   
                 show_dentists();
             } else {
+                echo 5;
                 //show Sign in // Sign up page
                 show_sign_in();
             }
