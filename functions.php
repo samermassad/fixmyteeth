@@ -3,10 +3,10 @@ function db_connect() {
     $servername = "localhost";
     $username = "server";
     $password = "fixmyteeth";
-
+    
     // Create connection
     $conn = new mysqli($servername, $username, $password, "fixmyteeth");
-
+    echo "connection";
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
