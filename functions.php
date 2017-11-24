@@ -61,6 +61,7 @@ function check_hours($day, $fromto, $hours) {
 }
 
 function get_specilties() {
+    echo "function";
     $conn = db_connect();
     echo "Connected <br />";
     $result = mysqli_query($conn, "SELECT `specialty` FROM dentists; ");
