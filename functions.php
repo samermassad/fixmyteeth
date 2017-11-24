@@ -2,11 +2,18 @@
 function db_connect() {
     echo "connecting";
     $servername = "localhost";
-    $username = "root";
+    $username = "server";
     $password = "fixmyteeth";
     
-    // Create connection
-    $conn = new mysqli($servername, $username, $password, "fixmyteeth");
+    mysqli_report(MYSQLI_REPORT_STRICT);
+
+    try {
+         $conn = new mysqli($servername, $username, $password, 'fixmyteeth') ;
+    } catch (Exception $e ) {
+         echo "Service unavailable";
+         echo "message: " . $e->message;   // not in live code obviously...
+         exit;
+    }
     echo "connection";
     // Check connection
     if ($conn->connect_error) {
