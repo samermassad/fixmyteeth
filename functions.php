@@ -68,6 +68,7 @@ function get_specilties() {
         if(empty(trim($row['specialty'])))   $row['specialty'] = "General Dentist";
         if(!in_array($row['specialty'], $storeArray)) $storeArray[] = $row['specialty'];
     }
+    echo "<pre>";print_r($storeArray);echo"</pre>";
     return $storeArray;
 }
 
