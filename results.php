@@ -15,7 +15,6 @@ include "functions.php";
 <body>
     <?php
         if(isset($_POST['submit'])) {
-        display_search_bar();
     ?>
 
     <div id="results-grid">
