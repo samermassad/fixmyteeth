@@ -1,3 +1,0 @@
-[1123/175914.707:ERROR:process_reader_win.cc(151)] SuspendThread: ¾Ü¾ø·ÃÎÊ¡£ (0x5)
-[1123/175914.709:ERROR:exception_snapshot_win.cc(87)] thread ID 7428 not found in process
-[1123/175914.709:WARNING:crash_report_exception_handler.cc(62)] ProcessSnapshotWin::Initialize failed
