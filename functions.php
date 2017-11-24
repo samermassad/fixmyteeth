@@ -1,7 +1,6 @@
 <?php
 function db_connect() {
     
-    echo "connecting";
     $servername = "localhost";
     $username = "root";
     $password = "fixmyteeth";
@@ -13,7 +12,6 @@ function db_connect() {
          echo "message: " . $e->message;   // not in live code obviously...
          exit;
     }
-    echo "connection";
     // Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -154,7 +152,6 @@ function get_hours_script() {
 }
 
 function display_search_bar() {
-    $specialties = get_specilties();
     ?>
 <div class="tables" id="tables">
         <form action="results.php" method="post">
