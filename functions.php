@@ -65,9 +65,11 @@ function get_specilties() {
     $result = mysqli_query($conn, "SELECT `specialty` FROM dentists; ");
     $storeArray = Array();
     while ($row = mysqli_fetch_array($result, true)) {
+        echo $row['specialty'];echo"<br />";
         if(empty(trim($row['specialty'])))   $row['specialty'] = "General Dentist";
         if(!in_array($row['specialty'], $storeArray)) $storeArray[] = $row['specialty'];
     }
+    
     return $storeArray;
 }
 
@@ -109,7 +111,36 @@ function user_signed_in() {
 }
 
 function get_dentists($ids) {
-    
+    $conn = db_connect();
+    $query = "select * from dentists WHERE `id` IN (".implode(",",$ids).")";
+    $retval = mysqli_query( $conn, $query );
+    $val = mysqli_fetch_all($retval);
+    if( empty($val) ) {
+       return false;
+    } else {
+        return $val;
+    }
+}
+
+function get_hours_script() {
+    ?>
+<script>
+    function display_hours($row) {
+        $($row).next().animate({
+            height: $($row).next().get(0).scrollHeight
+        }, 250, function(){
+            $(this).height('auto');
+        });
+        $($row).attr('onclick','hide_hours(this)');
+        $($row).html('Hide Hours');
+    }
+    function hide_hours($row) {
+        $($row).next().animate({height:'0'});
+        $($row).attr('onclick','display_hours(this)');
+        $($row).html('Display Hours');
+    }
+</script>
+<?php
 }
 
 function display_search_bar() {
@@ -181,49 +212,49 @@ function display_search_bar() {
   		<option value="01:30">
  		<option value="02:00">
   		<option value="02:30">
-        <option value="03:00">
+                <option value="03:00">
   		<option value="03:30">
  		<option value="04:00">
   		<option value="04:30">
  		<option value="05:00">
   		<option value="05:30">
-        <option value="06:00">
+                <option value="06:00">
   		<option value="06:30">
  		<option value="07:00">
   		<option value="07:30">
  		<option value="08:00">
   		<option value="08:30">
-        <option value="09:00">
+                <option value="09:00">
   		<option value="09:30">
  		<option value="10:00">
   		<option value="10:30">
  		<option value="11:00">
   		<option value="11:30">
-        <option value="12:00">
+                <option value="12:00">
   		<option value="12:30">
  		<option value="13:00">
   		<option value="13:30">
  		<option value="14:00">
   		<option value="14:30">
-        <option value="15:00">
+                <option value="15:00">
   		<option value="15:30">
  		<option value="16:00">
   		<option value="16:30">
  		<option value="17:00">
   		<option value="17:30">
-        <option value="18:00">
+                <option value="18:00">
   		<option value="18:30">
  		<option value="19:00">
   		<option value="19:30">
  		<option value="20:00">
   		<option value="20:30">
-        <option value="21:00">
+                <option value="21:00">
   		<option value="21:30">
  		<option value="22:00">
   		<option value="22:30">
  		<option value="23:00">
   		<option value="23:30">
-        <option value="Not to specify">
+                <option value="Not to specify">
 		</datalist>
     </div>
     </td>
@@ -231,57 +262,6 @@ function display_search_bar() {
     <div class="group">
      <input name="to" type="text" list="browser0" width= 100px/><span class="highlight"></span><span class="bar"></span>
      <label>Time to</label>
-        <datalist id="browser0">
- 		<option value="00:00">
-  		<option value="00:30">
- 		<option value="01:00">
-  		<option value="01:30">
- 		<option value="02:00">
-  		<option value="02:30">
-        <option value="03:00">
-  		<option value="03:30">
- 		<option value="04:00">
-  		<option value="04:30">
- 		<option value="05:00">
-  		<option value="05:30">
-        <option value="06:00">
-  		<option value="06:30">
- 		<option value="07:00">
-  		<option value="07:30">
- 		<option value="08:00">
-  		<option value="08:30">
-        <option value="09:00">
-  		<option value="09:30">
- 		<option value="10:00">
-  		<option value="10:30">
- 		<option value="11:00">
-  		<option value="11:30">
-        <option value="12:00">
-  		<option value="12:30">
- 		<option value="13:00">
-  		<option value="13:30">
- 		<option value="14:00">
-  		<option value="14:30">
-        <option value="15:00">
-  		<option value="15:30">
- 		<option value="16:00">
-  		<option value="16:30">
- 		<option value="17:00">
-  		<option value="17:30">
-        <option value="18:00">
-  		<option value="18:30">
- 		<option value="19:00">
-  		<option value="19:30">
- 		<option value="20:00">
-  		<option value="20:30">
-        <option value="21:00">
-  		<option value="21:30">
- 		<option value="22:00">
-  		<option value="22:30">
- 		<option value="23:00">
-  		<option value="23:30">
-        <option value="Not to specify">
-		</datalist>
     </div>
     </td>
     <td>
@@ -308,6 +288,10 @@ function display_search_bar() {
     </td>
     </tr>
     </table>
+    <div id="search">
+        <input name="submit" type="submit" style="background:url(web_elements/search_button.png);height:100px;width:100px">
+        </input>
+    </div>
     </form>
   </div>
 <?php

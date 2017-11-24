@@ -5,4 +5,4 @@ if(!isset($_SESSION)) {
 
 unset($_SESSION['loggedin']);
 
-header('location:index.php');
+header('location:user.php');
