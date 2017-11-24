@@ -3,6 +3,7 @@ include('functions.php');
 if(!isset($_SESSION)) { 
     session_start();
 }
+var_dump($_SESSION['loggedin']);
 if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
     $id = $_GET['save'];
     save_dentist($id);
@@ -107,7 +108,7 @@ function show_sign_in($msg = '') {
                     <input type="password" name="password2" />
                 </div>
                 <div>
-                    <input type="submit" name="signup" value="Sign in" />
+                    <input type="submit" name="signup" value="Sign up" />
                 </div>
             </form>
         </div>
