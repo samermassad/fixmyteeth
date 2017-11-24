@@ -35,7 +35,7 @@ include 'functions.php';
                 display_search_bar();
             ?>
         </div>
-        <a href="user.php" style="position: absolute; top:5%; right:1%;">Check your contacted dentists</a>
+        <a href="user.php" style="text-decoration: none; color: white; position: absolute; top:5%; right:1%;">Check your contacted dentists</a>
     </body>
     <script>
         function submit_form() {
