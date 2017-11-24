@@ -293,6 +293,7 @@ function display_search_bar() {
                  </div>
              </tr>
          </table>
+         <div class="bubble"></div>
          <div class="teeth">
              <input name="submit" type="submit" style="font-size:0.01em; height:100px;width:100px;border: none;" value="Search!">
              </input>
