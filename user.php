@@ -33,6 +33,7 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
             }
         } else if (isset($_POST['signup'])){
             //Sign Up
+            echo 3;
             $username = $_POST['username'];
             $password1 = $_POST['password1'];
             $password2 = $_POST['password2'];
@@ -47,7 +48,7 @@ if(isset($_GET['save']) && isset($_SESSION['loggedin'])) {
             }
 
         } else {
-
+echo 4;
             if(user_signed_in()) {
                 //User has already signed in
                 ?>
