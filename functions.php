@@ -1,5 +1,6 @@
 <?php
 function db_connect() {
+    echo "connecting";
     $servername = "localhost";
     $username = "server";
     $password = "fixmyteeth";
