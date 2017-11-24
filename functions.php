@@ -311,7 +311,9 @@ function display_search_bar() {
                  </div>
              </tr>
          </table>
-            <div class="bubble"></div>
+            <div class="bubble">
+            <input type="image" style="font-size:0.01em; height:100px;width:100px;border: none; />
+            </div>
          <div class="teeth">
              <input type="image" name="submit" src="web_elements/teeth.png" border="0" alt="Submit" />
              <!--<input name="submit" type="submit" style="font-size:0.01em; height:100px;width:100px;border: none;" value="Search!">-->
