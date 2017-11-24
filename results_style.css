@@ -1,20 +1,19 @@
-@charset "utf-8";
-/* CSS Document */
+/* CSS Document for resultsPHP*/
 
 
 
-#results_table {
+table.results {
 	border-collapse: collapse;
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     width: 100%;
 }
 
-#results_table td, #results_table th {
+table.results td, table.results th {
     border: 1px solid #ddd;
     padding: 8px;
 }
 
-#results_table thead th {
+table.results thead th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
@@ -23,7 +22,7 @@
     color: white;
 }
 
-#results_table tbody td {
+table.results tbody td {
 	text-align: center;
 	vertical-align: middle;
 	padding: 10px;
@@ -32,15 +31,15 @@
     color: black;
 }
 
-#results_table tbody td:nth-child(even){
+table.results tbody td:nth-child(even){
     background-color: #008891;
 }
 
-#results_table tbody td:hover{
+table.results tbody td:hover{
     background-color: #00c4cd;
 }
 
-#results_table tbody tr:hover{
+table.results tbody tr:hover{
     background-color: #00c4cd;
 }
 
@@ -48,32 +47,40 @@
 @media
 only screen and (max-width: 768px){
 
-    table, thead, tbody, th, td, tr {
+    table.results, table.results thead, table.results tbody, table.results th, table.results td, table.results tr {
         display: block;
     }
 
-    thead tr {
+    table.results thead tr {
         position: absolute;
         top: -9999px;
         left: -9999px;
     }
-    thead th {
+    table.results thead th {
         position: absolute;
         top: -9999px;
         left: -9999px;
     }
 
-    tr { border: 1px solid #ccc; }
+    table.results tr { border: 1px solid #ccc; }
 
-    tbody td {
+    table.results tbody td {
         /* Behave  like a "row" */
         border: none;
         border-bottom: 1px solid #eee;
         position: relative;
-        padding-left: 50%;
+        padding-left: 10%;
     }
 
-    tbody td:before {
+    table.results tbody th {
+        /* Behave  like a "row" */
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 10%;
+    }
+
+    table.results tbody td:before {
         /* Now like a table header */
         position: absolute;
         /* Top/left values mimic padding */
@@ -87,16 +94,17 @@ only screen and (max-width: 768px){
     /*
     Label the data
     */
-    td:nth-of-type(1):before { content: "First Name"; }
-    td:nth-of-type(2):before { content: "Last Name"; }
-    td:nth-of-type(3):before { content: "Email"; }
-    td:nth-of-type(4):before { content: "Gender"; }
-    td:nth-of-type(5):before { content: "Address"; }
-    td:nth-of-type(6):before { content: "City"; }
-    td:nth-of-type(7):before { content: "Phone"; }
-    td:nth-of-type(8):before { content: "Image"; }
-    td:nth-of-type(9):before { content: "Hours"; }
-    td:nth-of-type(10):before { content: "Specialty"; }
+    table.results th:nth-of-type(1):before { content: "First Name"; }
+    table.results th:nth-of-type(2):before { content: "Last Name"; }
+    table.results th:nth-of-type(3):before { content: "Email"; }
+    table.results th:nth-of-type(4):before { content: "Gender"; }
+    table.results th:nth-of-type(5):before { content: "Address"; }
+    table.results th:nth-of-type(6):before { content: "City"; }
+    table.results th:nth-of-type(7):before { content: "Phone"; }
+    table.results th:nth-of-type(8):before { content: "Image"; }
+    table.results th:nth-of-type(9):before { content: "Hours"; }
+    table.results th:nth-of-type(10):before { content: "Specialty"; }
 }
 
 
+/* end of CSS Document for resultsPHP*/
